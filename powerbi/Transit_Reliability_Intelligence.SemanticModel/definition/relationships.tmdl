@@ -1,0 +1,43 @@
+relationship 9e5d573a-fd29-4277-8880-54cfe3078c5d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'analytics vw_daily_disruption_trends'.observation_date
+	toColumn: LocalDateTable_63711134-86ea-45dd-b06f-3c669d8a6dc0.Date
+
+relationship dd17d22f-0dd7-4b8a-9569-f5ab30a10737
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'analytics vw_line_snapshot_status'.snapshot_time
+	toColumn: LocalDateTable_40c6a927-ae7c-4a54-bf4f-bb4e8ea517da.Date
+
+relationship 88edb9a4-9d3f-4804-ad16-efc8227017f2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'analytics vw_operational_kpi_summary'.first_snapshot_time
+	toColumn: LocalDateTable_a33b06ab-31fe-434f-8c22-57328d0d9ad0.Date
+
+relationship 01092fa2-5ea5-4de2-aa6c-8ee01cb0eddd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'analytics vw_operational_kpi_summary'.latest_snapshot_time
+	toColumn: LocalDateTable_37e442af-a2e7-4f5f-b8c4-777687979a54.Date
+
+relationship AutoDetected_080dfa9e-15a1-4b3f-b11f-60328ab93e57
+	fromColumn: 'analytics vw_line_snapshot_status'.line_id
+	toColumn: Dim_Tube_Lines.line_id
+
+relationship AutoDetected_5a1ab0dd-e647-4ee4-842a-5aee3abef2dd
+	fromCardinality: many
+	toCardinality: one
+	crossFilteringBehavior: oneDirection
+	fromColumn: 'analytics vw_line_reliability'.line_id
+	toColumn: Dim_Tube_Lines.line_id
+
+relationship AutoDetected_fa75046f-984c-4396-9355-d4dc015ae179
+	fromCardinality: many
+	toCardinality: one
+	crossFilteringBehavior: oneDirection
+	fromColumn: 'analytics vw_major_disruptions_by_line'.line_id
+	toColumn: Dim_Tube_Lines.line_id
+
+relationship AutoDetected_cff10a84-cee9-4b2a-8f71-a517ebcaac7b
+	isActive: false
+	fromColumn: 'analytics vw_line_snapshot_status'.line_name
+	toColumn: 'analytics vw_line_reliability'.line_name
+

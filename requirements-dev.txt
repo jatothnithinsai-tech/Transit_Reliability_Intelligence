@@ -1,0 +1,5 @@
+-r requirements.txt
+moto[s3]==5.2.4
+jsonschema==4.26.0
+python-hcl2==8.1.4
+responses==0.26.3

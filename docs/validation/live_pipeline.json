@@ -1,0 +1,24 @@
+{
+  "runs": [
+    {
+      "run_id": "d69fdbfc-8cfc-438a-a312-11638b02dba9",
+      "status": "FAILED",
+      "failed_step": "TfL API Ingestion",
+      "error_message": "CalledProcessError"
+    },
+    {
+      "run_id": "3ceae1ce-26c4-4381-9bfd-aa9e84463453",
+      "status": "SUCCESS",
+      "failed_step": null,
+      "error_message": null
+    }
+  ],
+  "successful_run_inserted_rows": 11,
+  "loader_replay_inserted_rows": 0,
+  "s3_enabled": false,
+  "historical_backfill": {
+    "source_file": "data/raw/tube_status_20261015_220605.json",
+    "inserted_rows": 12,
+    "latest_processed_csv_preserved": true
+  }
+}

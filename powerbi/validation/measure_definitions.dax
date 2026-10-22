@@ -1,0 +1,21 @@
+DEFINE
+    MEASURE 'analytics vw_operational_kpi_summary'[Total Tube Lines] = CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[tube_lines_monitored] ), REMOVEFILTERS () )
+    MEASURE 'analytics vw_operational_kpi_summary'[Total Historical Snapshots] = CALCULATE ( DISTINCTCOUNT ( 'analytics vw_line_snapshot_status'[snapshot_time] ), REMOVEFILTERS () )
+    MEASURE 'analytics vw_operational_kpi_summary'[Observed Good Service %] = 100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[good_service_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )
+    MEASURE 'analytics vw_operational_kpi_summary'[Observed Disruption %] = 100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[disrupted_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )
+    MEASURE 'analytics vw_operational_kpi_summary'[Line Observed Good Service %] = 100.0 * DIVIDE ( SUM ( 'analytics vw_line_reliability'[good_service_snapshots] ), SUM ( 'analytics vw_line_reliability'[total_snapshots] ) )
+    MEASURE 'analytics vw_operational_kpi_summary'[Daily Observed Disruption %] = 100.0 * DIVIDE ( SUM ( 'analytics vw_daily_disruption_trends'[disrupted_line_observations] ), SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] ) )
+    MEASURE 'analytics vw_operational_kpi_summary'[Status Record Count] = SUM ( 'analytics vw_disruption_severity'[total_status_records] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Major Disruption Snapshots] = SUM ( 'analytics vw_major_disruptions_by_line'[major_status_snapshots] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Line Snapshots Observed] = SUM ( 'analytics vw_line_reliability'[total_snapshots] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Daily Collection Times] = SUM ( 'analytics vw_daily_disruption_trends'[snapshots_collected] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Daily Line Observations] = SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Status Record Share %] = 100.0 * DIVIDE ( [Status Record Count], CALCULATE ( [Status Record Count], REMOVEFILTERS ( 'analytics vw_disruption_severity' ) ) )
+    MEASURE 'analytics vw_operational_kpi_summary'[Severe Delay Snapshots] = SUM ( 'analytics vw_major_disruptions_by_line'[severe_delay_snapshots] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Closure or Suspension Snapshots] = SUM ( 'analytics vw_major_disruptions_by_line'[closure_or_suspension_snapshots] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Planned Closure Snapshots] = SUM ( 'analytics vw_major_disruptions_by_line'[planned_closure_snapshots] )
+    MEASURE 'analytics vw_operational_kpi_summary'[Status Record Color] = SWITCH ( SELECTEDVALUE ( 'analytics vw_disruption_severity'[status_description] ), "Good Service", "#37D6BC", "Severe Delays", "#FF747C", "Part Suspended", "#FF747C", "#FFAA70" )
+    MEASURE 'analytics vw_operational_kpi_summary'[Observation Context] = VAR LatestObservation = CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[latest_snapshot_time] ), REMOVEFILTERS () )
+RETURN
+    IF ( ISBLANK ( LatestObservation ), "No imported observations", "Latest imported observation: " & FORMAT ( LatestObservation, "dd MMM yyyy HH:mm" ) & " (model time)" )
+        & "  |  Import mode; refresh timestamp unavailable"

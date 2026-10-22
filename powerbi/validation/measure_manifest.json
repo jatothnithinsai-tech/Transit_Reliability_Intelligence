@@ -1,0 +1,104 @@
+{
+  "Total Tube Lines": {
+    "expression": "CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[tube_lines_monitored] ), REMOVEFILTERS () )",
+    "formatString": "#,0",
+    "description": "Network-wide distinct monitored line IDs, as calculated by the SQL summary; ignores report filters.",
+    "folder": "Report metrics"
+  },
+  "Total Historical Snapshots": {
+    "expression": "CALCULATE ( DISTINCTCOUNT ( 'analytics vw_line_snapshot_status'[snapshot_time] ), REMOVEFILTERS () )",
+    "formatString": "#,0",
+    "description": "Network-wide distinct collection timestamps. A timestamp shared by 11 lines counts once.",
+    "folder": "Report metrics"
+  },
+  "Observed Good Service %": {
+    "expression": "100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[good_service_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )",
+    "formatString": "0.00\\%",
+    "description": "Network-wide Good Service line/snapshot observations divided by all line/snapshot observations, on a 0-100 scale. Not uptime.",
+    "folder": "Report metrics"
+  },
+  "Observed Disruption %": {
+    "expression": "100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[disrupted_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )",
+    "formatString": "0.00\\%",
+    "description": "Network-wide disrupted line/snapshot observations divided by all line/snapshot observations, on a 0-100 scale. Not incident counts.",
+    "folder": "Report metrics"
+  },
+  "Line Observed Good Service %": {
+    "expression": "100.0 * DIVIDE ( SUM ( 'analytics vw_line_reliability'[good_service_snapshots] ), SUM ( 'analytics vw_line_reliability'[total_snapshots] ) )",
+    "formatString": "0.00\\%",
+    "description": "Weighted ratio of counts for selected Tube lines; never sums stored percentage columns.",
+    "folder": "Report metrics"
+  },
+  "Daily Observed Disruption %": {
+    "expression": "100.0 * DIVIDE ( SUM ( 'analytics vw_daily_disruption_trends'[disrupted_line_observations] ), SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] ) )",
+    "formatString": "0.00\\%",
+    "description": "Daily network-wide ratio of disrupted to all line/snapshot observations. Dates come from the SQL Europe/London calendar.",
+    "folder": "Report metrics"
+  },
+  "Status Record Count": {
+    "expression": "SUM ( 'analytics vw_disruption_severity'[total_status_records] )",
+    "formatString": "#,0",
+    "description": "Raw service-status records grouped by description. Multiple statuses can occur at the same line/snapshot; this is not a snapshot or incident count.",
+    "folder": "Report metrics"
+  },
+  "Major Disruption Snapshots": {
+    "expression": "SUM ( 'analytics vw_major_disruptions_by_line'[major_status_snapshots] )",
+    "formatString": "#,0",
+    "description": "Distinct line/snapshot observations matching any SQL-defined major category: Severe Delays, Part Closure, Part Suspended or Planned Closure. A snapshot matching multiple categories counts once per line.",
+    "folder": "Report metrics"
+  },
+  "Line Snapshots Observed": {
+    "expression": "SUM ( 'analytics vw_line_reliability'[total_snapshots] )",
+    "formatString": "#,0",
+    "description": "Line/snapshot observations for the selected lines. Totals across lines are not distinct collection timestamps.",
+    "folder": "Report tooltips"
+  },
+  "Daily Collection Times": {
+    "expression": "SUM ( 'analytics vw_daily_disruption_trends'[snapshots_collected] )",
+    "formatString": "#,0",
+    "description": "Distinct collection timestamps per observed local date, summed only across disjoint dates.",
+    "folder": "Report tooltips"
+  },
+  "Daily Line Observations": {
+    "expression": "SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] )",
+    "formatString": "#,0",
+    "description": "Number of observed line/snapshot pairs per local date.",
+    "folder": "Report tooltips"
+  },
+  "Status Record Share %": {
+    "expression": "100.0 * DIVIDE ( [Status Record Count], CALCULATE ( [Status Record Count], REMOVEFILTERS ( 'analytics vw_disruption_severity' ) ) )",
+    "formatString": "0.00\\%",
+    "description": "Share of raw status records; denominator differs from the observation-based KPI denominator.",
+    "folder": "Report tooltips"
+  },
+  "Severe Delay Snapshots": {
+    "expression": "SUM ( 'analytics vw_major_disruptions_by_line'[severe_delay_snapshots] )",
+    "formatString": "#,0",
+    "description": "Observed snapshots with Severe Delays. Category counts can overlap; do not add them to obtain the major total.",
+    "folder": "Report tooltips"
+  },
+  "Closure or Suspension Snapshots": {
+    "expression": "SUM ( 'analytics vw_major_disruptions_by_line'[closure_or_suspension_snapshots] )",
+    "formatString": "#,0",
+    "description": "Observed snapshots with Part Closure or Part Suspended. Category counts can overlap; do not add them to obtain the major total.",
+    "folder": "Report tooltips"
+  },
+  "Planned Closure Snapshots": {
+    "expression": "SUM ( 'analytics vw_major_disruptions_by_line'[planned_closure_snapshots] )",
+    "formatString": "#,0",
+    "description": "Observed snapshots with Planned Closure; included in the SQL major-status union. Category counts can overlap; do not add them to obtain the major total.",
+    "folder": "Report tooltips"
+  },
+  "Status Record Color": {
+    "expression": "SWITCH ( SELECTEDVALUE ( 'analytics vw_disruption_severity'[status_description] ), \"Good Service\", \"#37D6BC\", \"Severe Delays\", \"#FF747C\", \"Part Suspended\", \"#FF747C\", \"#FFAA70\" )",
+    "formatString": null,
+    "description": "Category-based colors, without treating severity codes as a numeric scale.",
+    "folder": "Report presentation"
+  },
+  "Observation Context": {
+    "expression": "VAR LatestObservation = CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[latest_snapshot_time] ), REMOVEFILTERS () )\nRETURN\n    IF ( ISBLANK ( LatestObservation ), \"No imported observations\", \"Latest imported observation: \" & FORMAT ( LatestObservation, \"dd MMM yyyy HH:mm\" ) & \" (model time)\" )\n        & \"  |  Import mode; refresh timestamp unavailable\"",
+    "formatString": null,
+    "description": "Latest imported observation timestamp, not the time of model refresh. No refresh timestamp exists in the supplied model.",
+    "folder": "Report presentation"
+  }
+}

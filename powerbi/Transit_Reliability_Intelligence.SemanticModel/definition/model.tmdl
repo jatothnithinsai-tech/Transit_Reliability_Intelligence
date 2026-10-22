@@ -1,0 +1,30 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["analytics vw_daily_disruption_trends","analytics vw_disruption_severity","Dim_Tube_Lines","analytics vw_line_snapshot_status","analytics vw_major_disruptions_by_line","analytics vw_operational_kpi_summary","analytics vw_line_reliability"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'analytics vw_daily_disruption_trends'
+ref table DateTableTemplate_de30e7fa-5839-49c6-8b32-cb8ba62ce60f
+ref table LocalDateTable_63711134-86ea-45dd-b06f-3c669d8a6dc0
+ref table 'analytics vw_disruption_severity'
+ref table Dim_Tube_Lines
+ref table 'analytics vw_line_snapshot_status'
+ref table LocalDateTable_40c6a927-ae7c-4a54-bf4f-bb4e8ea517da
+ref table 'analytics vw_major_disruptions_by_line'
+ref table 'analytics vw_operational_kpi_summary'
+ref table LocalDateTable_a33b06ab-31fe-434f-8c22-57328d0d9ad0
+ref table LocalDateTable_37e442af-a2e7-4f5f-b8c4-777687979a54
+ref table 'analytics vw_line_reliability'
+
+ref cultureInfo en-IN
+

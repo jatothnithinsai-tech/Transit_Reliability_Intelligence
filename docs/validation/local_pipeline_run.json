@@ -1,0 +1,15 @@
+{
+  "scheduled_pipeline_run": {
+    "run_id": "78205b37-a9f4-4ec9-a7e6-e220f35b88ce",
+    "started_at": "2026-10-21 23:41:17.558122+01:00",
+    "finished_at": "2026-10-21 23:41:20.684358+01:00",
+    "status": "SUCCESS",
+    "failed_step": null,
+    "error_message": null
+  },
+  "matching_advisory_locks_after_run": 0,
+  "running_audit_rows": 0,
+  "rows_loaded": 12,
+  "duplicate_replay_inserted_rows": 0,
+  "duplicate_replay_lineage_updates": 0
+}

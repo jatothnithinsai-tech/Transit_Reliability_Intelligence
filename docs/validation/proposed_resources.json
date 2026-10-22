@@ -1,0 +1,166 @@
+{
+  "mock_only": true,
+  "resources": [
+    {
+      "address": "aws_cloudwatch_log_group.ingestion",
+      "type": "aws_cloudwatch_log_group",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.dead_letters[\"delivery\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.dead_letters[\"execution\"]",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.errors",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_cloudwatch_metric_alarm.missing_invocations",
+      "type": "aws_cloudwatch_metric_alarm",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_iam_role.lambda",
+      "type": "aws_iam_role",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_iam_role.scheduler",
+      "type": "aws_iam_role",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.lambda",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_iam_role_policy.scheduler",
+      "type": "aws_iam_role_policy",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_lambda_function.ingestion",
+      "type": "aws_lambda_function",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_lambda_function_event_invoke_config.ingestion",
+      "type": "aws_lambda_function_event_invoke_config",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket.raw",
+      "type": "aws_s3_bucket",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_lifecycle_configuration.raw",
+      "type": "aws_s3_bucket_lifecycle_configuration",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_ownership_controls.raw",
+      "type": "aws_s3_bucket_ownership_controls",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_policy.raw",
+      "type": "aws_s3_bucket_policy",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_public_access_block.raw",
+      "type": "aws_s3_bucket_public_access_block",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_server_side_encryption_configuration.raw",
+      "type": "aws_s3_bucket_server_side_encryption_configuration",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_s3_bucket_versioning.raw",
+      "type": "aws_s3_bucket_versioning",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_scheduler_schedule.hourly",
+      "type": "aws_scheduler_schedule",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_scheduler_schedule_group.ingestion",
+      "type": "aws_scheduler_schedule_group",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_sns_topic.alerts",
+      "type": "aws_sns_topic",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_sqs_queue.delivery_failures",
+      "type": "aws_sqs_queue",
+      "actions": [
+        "create"
+      ]
+    },
+    {
+      "address": "aws_sqs_queue.failed_invocations",
+      "type": "aws_sqs_queue",
+      "actions": [
+        "create"
+      ]
+    }
+  ]
+}

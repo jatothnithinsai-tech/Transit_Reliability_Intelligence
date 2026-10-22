@@ -1,0 +1,6 @@
+{
+  "checked_files": 72,
+  "changed_protected_files": [],
+  "passed": true,
+  "scope": "Pre-existing raw JSON, original SQL and report/model source definitions; caches excluded"
+}

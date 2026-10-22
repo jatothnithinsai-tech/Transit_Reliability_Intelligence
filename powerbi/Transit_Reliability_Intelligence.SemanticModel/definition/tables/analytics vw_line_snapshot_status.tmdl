@@ -1,0 +1,71 @@
+table 'analytics vw_line_snapshot_status'
+	lineageTag: f3f42135-1436-4545-a558-5247c6be0d1e
+
+	column line_id
+		dataType: string
+		lineageTag: a5bd1fa3-d0ef-4d44-931f-cba44987e1f1
+		summarizeBy: none
+		sourceColumn: line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_name
+		dataType: string
+		lineageTag: 0e39ddeb-862e-4aa0-ade9-edca33fbb197
+		summarizeBy: none
+		sourceColumn: line_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67c5624c-5ac9-4bbe-b1bb-d4761e5fcf26
+		summarizeBy: none
+		sourceColumn: snapshot_time
+
+		variation Variation
+			isDefault
+			relationship: dd17d22f-0dd7-4b8a-9569-f5ab30a10737
+			defaultHierarchy: LocalDateTable_40c6a927-ae7c-4a54-bf4f-bb4e8ea517da.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column status_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b901de3-6933-406b-bdaa-dc9789fb0db9
+		summarizeBy: sum
+		sourceColumn: status_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column was_disrupted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 17dd3bc3-301d-4341-9c83-0e8fcd9bb702
+		summarizeBy: none
+		sourceColumn: was_disrupted
+
+		annotation SummarizationSetBy = Automatic
+
+	column was_good_service
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5cb0132e-e525-4b8e-9f59-e300612e3289
+		summarizeBy: none
+		sourceColumn: was_good_service
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_line_snapshot_status' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_line_snapshot_status = Source{[Schema="analytics",Item="vw_line_snapshot_status"]}[Data]
+				in
+				    analytics_vw_line_snapshot_status
+
+	annotation PBI_ResultType = Table
+

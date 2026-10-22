@@ -1,0 +1,7 @@
+{
+  "protected_files": 86,
+  "changed_protected_files": [],
+  "effective_s3_enabled": "false",
+  "terraform_state_files": [],
+  "passed": true
+}

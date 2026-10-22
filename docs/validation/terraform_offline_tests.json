@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "summary": [
+    {
+      "@level": "info",
+      "@message": "Success! 3 passed, 0 failed.",
+      "@module": "terraform.ui",
+      "@timestamp": "2026-10-22T00:08:22.637540+01:00",
+      "test_summary": {
+        "status": "pass",
+        "passed": 3,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      },
+      "type": "test_summary"
+    }
+  ]
+}

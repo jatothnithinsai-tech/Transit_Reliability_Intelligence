@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 40.789026986600156,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 568.1358940945637,
+            "y": 205.60207163738545
+          },
+          "nodeIndex": "analytics vw_daily_disruption_trends",
+          "nodeLineageTag": "1e5c9751-5da7-4981-9c6c-8acb6e38e1db",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852.1358940945637,
+            "y": 205.60207163738545
+          },
+          "nodeIndex": "analytics vw_disruption_severity",
+          "nodeLineageTag": "436736bf-182e-454d-b853-45d70b617c3a",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.13007315461977,
+            "y": -50
+          },
+          "nodeIndex": "analytics vw_line_snapshot_status",
+          "nodeLineageTag": "f3f42135-1436-4545-a558-5247c6be0d1e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 144.25898522144126
+          },
+          "nodeIndex": "analytics vw_major_disruptions_by_line",
+          "nodeLineageTag": "aa6e7c1e-a5db-41ca-8ed6-22eccdace7e3",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136.1358940945638,
+            "y": 167.60207163738545
+          },
+          "nodeIndex": "analytics vw_operational_kpi_summary",
+          "nodeLineageTag": "fd1759f1-2778-4b0c-a1f8-85afa729012a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.13589409456358,
+            "y": 337.20414327477096
+          },
+          "nodeIndex": "Dim_Tube_Lines",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1370.1358940945638,
+            "y": 193.60207163738551
+          },
+          "nodeIndex": "analytics vw_line_reliability",
+          "nodeLineageTag": "aedf9d0c-1dd6-49d7-9d85-0e7c85d595c2",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 56.717035545894355,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [],
+      "name": "Layout 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

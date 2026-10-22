@@ -1,0 +1,235 @@
+table 'analytics vw_operational_kpi_summary'
+	lineageTag: fd1759f1-2778-4b0c-a1f8-85afa729012a
+
+
+
+	/// Network-wide distinct monitored line IDs, as calculated by the SQL summary; ignores report filters.
+	measure 'Total Tube Lines' =
+			CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[tube_lines_monitored] ), REMOVEFILTERS () )
+		formatString: #,0
+		displayFolder: Report metrics
+
+	/// Network-wide distinct collection timestamps. A timestamp shared by 11 lines counts once.
+	measure 'Total Historical Snapshots' =
+			CALCULATE ( DISTINCTCOUNT ( 'analytics vw_line_snapshot_status'[snapshot_time] ), REMOVEFILTERS () )
+		formatString: #,0
+		displayFolder: Report metrics
+
+	/// Network-wide Good Service line/snapshot observations divided by all line/snapshot observations, on a 0-100 scale. Not uptime.
+	measure 'Observed Good Service %' =
+			100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[good_service_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )
+		formatString: 0.00\%
+		displayFolder: Report metrics
+
+	/// Network-wide disrupted line/snapshot observations divided by all line/snapshot observations, on a 0-100 scale. Not incident counts.
+	measure 'Observed Disruption %' =
+			100.0 * DIVIDE ( CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[disrupted_observations] ), REMOVEFILTERS () ), CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[total_line_observations] ), REMOVEFILTERS () ) )
+		formatString: 0.00\%
+		displayFolder: Report metrics
+
+	/// Weighted ratio of counts for selected Tube lines; never sums stored percentage columns.
+	measure 'Line Observed Good Service %' =
+			100.0 * DIVIDE ( SUM ( 'analytics vw_line_reliability'[good_service_snapshots] ), SUM ( 'analytics vw_line_reliability'[total_snapshots] ) )
+		formatString: 0.00\%
+		displayFolder: Report metrics
+
+	/// Daily network-wide ratio of disrupted to all line/snapshot observations. Dates come from the SQL Europe/London calendar.
+	measure 'Daily Observed Disruption %' =
+			100.0 * DIVIDE ( SUM ( 'analytics vw_daily_disruption_trends'[disrupted_line_observations] ), SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] ) )
+		formatString: 0.00\%
+		displayFolder: Report metrics
+
+	/// Raw service-status records grouped by description. Multiple statuses can occur at the same line/snapshot; this is not a snapshot or incident count.
+	measure 'Status Record Count' =
+			SUM ( 'analytics vw_disruption_severity'[total_status_records] )
+		formatString: #,0
+		displayFolder: Report metrics
+
+	/// Distinct line/snapshot observations matching any SQL-defined major category: Severe Delays, Part Closure, Part Suspended or Planned Closure. A snapshot matching multiple categories counts once per line.
+	measure 'Major Disruption Snapshots' =
+			SUM ( 'analytics vw_major_disruptions_by_line'[major_status_snapshots] )
+		formatString: #,0
+		displayFolder: Report metrics
+
+	/// Line/snapshot observations for the selected lines. Totals across lines are not distinct collection timestamps.
+	measure 'Line Snapshots Observed' =
+			SUM ( 'analytics vw_line_reliability'[total_snapshots] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Distinct collection timestamps per observed local date, summed only across disjoint dates.
+	measure 'Daily Collection Times' =
+			SUM ( 'analytics vw_daily_disruption_trends'[snapshots_collected] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Number of observed line/snapshot pairs per local date.
+	measure 'Daily Line Observations' =
+			SUM ( 'analytics vw_daily_disruption_trends'[total_line_observations] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Share of raw status records; denominator differs from the observation-based KPI denominator.
+	measure 'Status Record Share %' =
+			100.0 * DIVIDE ( [Status Record Count], CALCULATE ( [Status Record Count], REMOVEFILTERS ( 'analytics vw_disruption_severity' ) ) )
+		formatString: 0.00\%
+		displayFolder: Report tooltips
+
+	/// Observed snapshots with Severe Delays. Category counts can overlap; do not add them to obtain the major total.
+	measure 'Severe Delay Snapshots' =
+			SUM ( 'analytics vw_major_disruptions_by_line'[severe_delay_snapshots] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Observed snapshots with Part Closure or Part Suspended. Category counts can overlap; do not add them to obtain the major total.
+	measure 'Closure or Suspension Snapshots' =
+			SUM ( 'analytics vw_major_disruptions_by_line'[closure_or_suspension_snapshots] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Observed snapshots with Planned Closure; included in the SQL major-status union. Category counts can overlap; do not add them to obtain the major total.
+	measure 'Planned Closure Snapshots' =
+			SUM ( 'analytics vw_major_disruptions_by_line'[planned_closure_snapshots] )
+		formatString: #,0
+		displayFolder: Report tooltips
+
+	/// Category-based colors, without treating severity codes as a numeric scale.
+	measure 'Status Record Color' =
+			SWITCH ( SELECTEDVALUE ( 'analytics vw_disruption_severity'[status_description] ), "Good Service", "#37D6BC", "Severe Delays", "#FF747C", "Part Suspended", "#FF747C", "#FFAA70" )
+		displayFolder: Report presentation
+
+	/// Latest imported observation timestamp, not the time of model refresh. No refresh timestamp exists in the supplied model.
+	measure 'Observation Context' =
+			VAR LatestObservation = CALCULATE ( MAX ( 'analytics vw_operational_kpi_summary'[latest_snapshot_time] ), REMOVEFILTERS () )
+			RETURN
+			    IF ( ISBLANK ( LatestObservation ), "No imported observations", "Latest imported observation: " & FORMAT ( LatestObservation, "dd MMM yyyy HH:mm" ) & " (model time)" )
+			        & "  |  Import mode; refresh timestamp unavailable"
+		displayFolder: Report presentation
+
+
+	column tube_lines_monitored
+		dataType: int64
+		formatString: 0
+		lineageTag: 133ba8d1-d73f-4bcc-951c-f38016434a2c
+		summarizeBy: sum
+		sourceColumn: tube_lines_monitored
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: b81c8171-6e49-4568-aee8-308805f19575
+		summarizeBy: sum
+		sourceColumn: total_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_line_observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 41b4a0fc-5656-4b0e-af5a-cad5ac4d91f5
+		summarizeBy: sum
+		sourceColumn: total_line_observations
+
+		annotation SummarizationSetBy = Automatic
+
+	column good_service_observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 4457bfbc-680d-4c66-bc48-0228fa00d22b
+		summarizeBy: sum
+		sourceColumn: good_service_observations
+
+		annotation SummarizationSetBy = Automatic
+
+	column disrupted_observations
+		dataType: int64
+		formatString: 0
+		lineageTag: 196c3ddf-26a1-427c-875f-ef46faf5e9cc
+		summarizeBy: sum
+		sourceColumn: disrupted_observations
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_good_service_pct
+		dataType: double
+		formatString: 0.00\%
+		lineageTag: 26b048f6-b5f1-4335-96fc-65ad76b0b935
+		summarizeBy: none
+		sourceColumn: observed_good_service_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column observed_disruption_pct
+		dataType: double
+		formatString: 0.00\%
+		lineageTag: b9cb3a1a-84b4-42be-84ae-ece03d67fbb1
+		summarizeBy: none
+		sourceColumn: observed_disruption_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column major_status_observations
+		dataType: double
+		lineageTag: f71f0632-3584-4b56-a20a-3e7b0783b5f2
+		summarizeBy: sum
+		sourceColumn: major_status_observations
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column planned_closure_observations
+		dataType: double
+		lineageTag: a450882b-9bc9-4a69-b705-d8a5bdd2d209
+		summarizeBy: sum
+		sourceColumn: planned_closure_observations
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column first_snapshot_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d967a20-6c5e-4d15-8363-c093af896965
+		summarizeBy: none
+		sourceColumn: first_snapshot_time
+
+		variation Variation
+			isDefault
+			relationship: 88edb9a4-9d3f-4804-ad16-efc8227017f2
+			defaultHierarchy: LocalDateTable_a33b06ab-31fe-434f-8c22-57328d0d9ad0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column latest_snapshot_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ccf551c2-4c81-4434-b69e-16b2692d0d4a
+		summarizeBy: none
+		sourceColumn: latest_snapshot_time
+
+		variation Variation
+			isDefault
+			relationship: 01092fa2-5ea5-4de2-aa6c-8ee01cb0eddd
+			defaultHierarchy: LocalDateTable_37e442af-a2e7-4f5f-b8c4-777687979a54.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_operational_kpi_summary' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_operational_kpi_summary = Source{[Schema="analytics",Item="vw_operational_kpi_summary"]}[Data]
+				in
+				    analytics_vw_operational_kpi_summary
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,15 @@
+{
+  "zip_bytes": 16851596,
+  "uncompressed_bytes": 23565187,
+  "sha256": "2204bc4e5dabd7a32136049a1e75e494d7b143cbe2f4f30f01948a08226a792d",
+  "source_files_match": [
+    "src/cloud/lambda_handler.py",
+    "src/cloud/execution_registry.py",
+    "src/ingestion/tfl_client.py",
+    "src/storage/s3_storage.py"
+  ],
+  "forbidden_files": [],
+  "ca_certificates_preserved": true,
+  "isolated_imports_passed": true,
+  "aws_linux_runtime_executed": false
+}

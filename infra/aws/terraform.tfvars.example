@@ -1,0 +1,7 @@
+# Future reference only. Resource list, region and costs require explicit approval.
+deployment_authorized = false
+aws_account_id        = "000000000000"
+bucket_name           = "replace-with-a-globally-unique-transit-bucket"
+region                = "eu-west-2"
+schedule_enabled      = false
+use_api_secret        = false

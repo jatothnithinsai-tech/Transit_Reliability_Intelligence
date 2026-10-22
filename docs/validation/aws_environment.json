@@ -1,0 +1,9 @@
+{
+  "boto3_version": "1.43.111",
+  "region": null,
+  "credentials_available": false,
+  "credential_method": null,
+  "available_profile_count": 0,
+  "account_identity": "NOT VERIFIED: no usable credentials in the current default credential chain",
+  "proposed_region": "eu-west-2"
+}

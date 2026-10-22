@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Transit_Reliability_Intelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "38f68b90-b4f9-4544-98dd-556fac2740aa"
+  }
+}

@@ -1,0 +1,75 @@
+table 'analytics vw_major_disruptions_by_line'
+	lineageTag: aa6e7c1e-a5db-41ca-8ed6-22eccdace7e3
+
+	column line_id
+		dataType: string
+		lineageTag: fb079997-226a-4feb-b018-bce3ac0a1f2d
+		summarizeBy: none
+		sourceColumn: line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_name
+		dataType: string
+		lineageTag: 95f1a7e3-ecaa-4259-9b27-394048771d7a
+		summarizeBy: none
+		sourceColumn: line_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshots_observed
+		dataType: int64
+		formatString: 0
+		lineageTag: c92be5bf-ddac-4413-8fab-7d84623e2705
+		summarizeBy: sum
+		sourceColumn: snapshots_observed
+
+		annotation SummarizationSetBy = Automatic
+
+	column severe_delay_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: ec0fee65-4bf9-4d3e-bf83-60884b800590
+		summarizeBy: sum
+		sourceColumn: severe_delay_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column closure_or_suspension_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 9776a918-0aeb-4429-a1c5-986950c37edd
+		summarizeBy: sum
+		sourceColumn: closure_or_suspension_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_closure_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 185eebf7-b841-485e-a66f-20dd37e4cab6
+		summarizeBy: sum
+		sourceColumn: planned_closure_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column major_status_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d356e8b-2f6f-4b1c-bd30-fb58bda48a32
+		summarizeBy: sum
+		sourceColumn: major_status_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_major_disruptions_by_line' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_major_disruptions_by_line = Source{[Schema="analytics",Item="vw_major_disruptions_by_line"]}[Data]
+				in
+				    analytics_vw_major_disruptions_by_line
+
+	annotation PBI_ResultType = Table
+

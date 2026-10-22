@@ -1,0 +1,69 @@
+table 'analytics vw_disruption_severity'
+	lineageTag: 436736bf-182e-454d-b853-45d70b617c3a
+
+	column status_severity
+		dataType: int64
+		formatString: 0
+		lineageTag: a92ec8d1-4cab-4dd2-8c12-a52c63c39aa3
+		summarizeBy: sum
+		sourceColumn: status_severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column status_description
+		dataType: string
+		lineageTag: e9cdfb78-b665-4c87-a009-7d7c73ed4666
+		summarizeBy: none
+		sourceColumn: status_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_status_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a6c5731-b728-4179-a409-bd38ff762104
+		summarizeBy: sum
+		sourceColumn: total_status_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshots_observed
+		dataType: int64
+		formatString: 0
+		lineageTag: aaade917-68b4-4949-a337-511c0ef8ff3c
+		summarizeBy: sum
+		sourceColumn: snapshots_observed
+
+		annotation SummarizationSetBy = Automatic
+
+	column affected_tube_lines
+		dataType: int64
+		formatString: 0
+		lineageTag: 967dda65-fe44-4bea-9c00-6fcc82af34f4
+		summarizeBy: sum
+		sourceColumn: affected_tube_lines
+
+		annotation SummarizationSetBy = Automatic
+
+	column percentage_of_records
+		dataType: double
+		formatString: 0.00\%
+		lineageTag: e6e79f46-174f-4688-9ab5-9fd1f149956e
+		summarizeBy: none
+		sourceColumn: percentage_of_records
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'analytics vw_disruption_severity' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_disruption_severity = Source{[Schema="analytics",Item="vw_disruption_severity"]}[Data]
+				in
+				    analytics_vw_disruption_severity
+
+	annotation PBI_ResultType = Table
+

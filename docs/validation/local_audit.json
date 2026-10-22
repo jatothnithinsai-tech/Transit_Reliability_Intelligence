@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-10-21T23:14:48.412321+00:00",
+  "read_only": true,
+  "passed": true,
+  "checks": {
+    "unique_observation_grain": true,
+    "eleven_lines": true,
+    "complementary_counts": true,
+    "daily_totals_reconcile": true,
+    "history_unique_keys": true,
+    "history_has_lineage": true,
+    "severity_records_reconcile": true,
+    "major_union_reconciles": true,
+    "loaded_sources_match_raw": true,
+    "all_retained_raw_sources_loaded": true
+  },
+  "summary": {
+    "tube_lines_monitored": 11,
+    "total_snapshots": 44,
+    "total_line_observations": 484,
+    "good_service_observations": 359,
+    "disrupted_observations": 125,
+    "observed_good_service_pct": "74.17",
+    "observed_disruption_pct": "25.83",
+    "major_status_observations": "57",
+    "planned_closure_observations": "5",
+    "first_snapshot_time": "2026-10-13 11:50:23+01:00",
+    "latest_snapshot_time": "2026-10-22 00:06:14+01:00"
+  },
+  "history_records": 496,
+  "loaded_source_files": 44,
+  "raw_files_present": 44,
+  "unloaded_raw_sources": [],
+  "database_timezone": "Europe/London",
+  "monitoring_status_counts": {
+    "SUCCESS": 40,
+    "FAILED": 1
+  },
+  "failures": []
+}

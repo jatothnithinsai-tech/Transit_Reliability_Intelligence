@@ -1,0 +1,134 @@
+{
+  "checked_at_utc": "2026-10-22T22:28:02.966063+00:00",
+  "initial_git_state": {
+    "branch": "master",
+    "commits": 0,
+    "untracked_publication_candidates": 153,
+    "remotes": []
+  },
+  "components_present": {
+    "python_pipeline": [
+      "src/ingestion/tfl_client.py",
+      "src/ingestion/save_raw_status.py",
+      "src/transformation/transform_tube_status.py",
+      "src/quality/validate_tube_status.py",
+      "src/loading/load_tube_status.py",
+      "src/pipeline/run_pipeline.py",
+      "src/storage/s3_storage.py",
+      "src/cloud/lambda_handler.py"
+    ],
+    "sql": [
+      "sql/00_schema_reference.sql",
+      "sql/01_create_analytics_views.sql",
+      "sql/views/04_disruption_severity.sql",
+      "sql/views/05_major_disruptions_by_line.sql",
+      "sql/views/06_operational_kpi_summary.sql"
+    ],
+    "power_bi": [
+      "powerbi/Transit_Reliability_Intelligence.pbip",
+      "powerbi/Transit_Reliability_Intelligence.Report/definition.pbir",
+      "powerbi/Transit_Reliability_Intelligence.SemanticModel/definition.pbism"
+    ],
+    "terraform": [
+      "infra/aws/main.tf",
+      "infra/aws/monitoring.tf",
+      "infra/aws/outputs.tf",
+      "infra/aws/scheduler.tf",
+      "infra/aws/storage.tf",
+      "infra/aws/variables.tf",
+      "infra/aws/versions.tf",
+      "infra/aws/.terraform.lock.hcl",
+      "infra/aws/terraform.tfvars.example",
+      "infra/aws/tests/offline.tftest.hcl"
+    ],
+    "documentation": [
+      "docs/architecture.md",
+      "docs/aws_architecture.md",
+      "docs/aws_costs.md",
+      "docs/aws_deployment_plan.md",
+      "docs/aws_educate_guide.md",
+      "docs/aws_environment.md",
+      "docs/aws_local_integration.md",
+      "docs/aws_operations.md",
+      "docs/aws_readiness.md",
+      "docs/completion_report.md",
+      "docs/data_dictionary.md",
+      "docs/interview_walkthrough.md",
+      "docs/kpi_definitions.md",
+      "docs/local_verification.md",
+      "docs/publication_review.md",
+      "docs/testing.md"
+    ]
+  },
+  "python_suite": {
+    "checked_at_utc": "2026-10-22T22:26:59.478413+00:00",
+    "tests_run": 99,
+    "passed": 99,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "external_sockets_forbidden": true,
+    "live_pipeline_log_isolated": true,
+    "successful": true
+  },
+  "terraform": {
+    "version": "1.13.5",
+    "fmt_exit_code": 0,
+    "validate": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "mock_plan_tests": {
+      "passed": 3,
+      "failed": 0,
+      "errored": 0,
+      "skipped": 0
+    },
+    "mock_tests_completed_at": "2026-10-22T23:23:23.604551+01:00",
+    "real_account_plan_or_apply_executed": false
+  },
+  "power_bi": {
+    "static_validation_passed": true,
+    "visuals": 14,
+    "tmdl_parsed": true,
+    "tables": 12,
+    "measures": 17,
+    "live_dax_rerun": false,
+    "dashboard_rebuilt_or_refreshed": false,
+    "screenshots_present": false
+  },
+  "pip_check": {
+    "exit_code": 0,
+    "result": "No broken requirements found."
+  },
+  "preservation": {
+    "protected_files_checked": 127,
+    "changed_files": []
+  },
+  "publication_safety": {
+    "passed": true,
+    "candidate_files": 155,
+    "index_scanned": true,
+    "secrets_or_sensitive_artifacts_detected": false,
+    "oversized_files": [],
+    "ignore_probes_checked": 34,
+    "personal_information_review": "No personal profile paths, local username or personal email detected; zero-filled AWS test IDs and dummy test credentials reviewed. Project-only commit identity uses a reserved invalid address.",
+    "staged_safe_files": 155,
+    "personal_information_index_and_working_tree_review_passed": true
+  },
+  "commit_identity": {
+    "name": "Transit Reliability Intelligence",
+    "email": "noreply@example.invalid",
+    "scope": "Command-specific Git options; global configuration unchanged"
+  },
+  "aws_status": "IMPLEMENTED AND LOCALLY VALIDATED; NOT DEPLOYED",
+  "github_push_performed": false,
+  "remaining_publication_action": "After explicit approval, create an empty GitHub repository, add its URL as origin, and push master.",
+  "source_whitespace": {
+    "default_git_check_exit_code": 2,
+    "existing_export_blank_line_advisories": 17,
+    "check_excluding_only_blank_at_eof_exit_code": 0,
+    "original_definitions_preserved": true
+  }
+}

@@ -1,0 +1,81 @@
+table 'analytics vw_line_reliability'
+	lineageTag: aedf9d0c-1dd6-49d7-9d85-0e7c85d595c2
+
+	column line_id
+		dataType: string
+		lineageTag: 23967b3d-cd47-4414-a58b-83e47baba640
+		summarizeBy: none
+		sourceColumn: line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_name
+		dataType: string
+		lineageTag: ad442421-859a-4c68-bd5d-caf420f9f33f
+		summarizeBy: none
+		sourceColumn: line_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e16d359-9e08-448a-8e7c-714fe87d629d
+		summarizeBy: sum
+		sourceColumn: total_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column disrupted_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 973ad115-de4c-452d-b77f-cd6c3eed02ea
+		summarizeBy: sum
+		sourceColumn: disrupted_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column good_service_snapshots
+		dataType: int64
+		formatString: 0
+		lineageTag: 91f292bb-4fb5-4793-9a64-137f4b0ec8ef
+		summarizeBy: sum
+		sourceColumn: good_service_snapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_good_service_pct
+		dataType: double
+		formatString: 0.00\%
+		lineageTag: c8c9e0a0-49ff-4ed4-8071-6b5d4e3f6564
+		summarizeBy: none
+		sourceColumn: observed_good_service_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column observed_disruption_pct
+		dataType: double
+		formatString: 0.00\%
+		lineageTag: 79ad628c-3e06-4cd4-8c82-a24a7cb7938b
+		summarizeBy: none
+		sourceColumn: observed_disruption_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'analytics vw_line_reliability' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_line_reliability = Source{[Schema="analytics",Item="vw_line_reliability"]}[Data]
+				in
+				    analytics_vw_line_reliability
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

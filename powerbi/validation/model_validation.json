@@ -1,0 +1,313 @@
+﻿{
+    "tmdlParsed":  true,
+    "tables":  12,
+    "measures":  17,
+    "relationships":  [
+                          {
+                              "name":  "9e5d573a-fd29-4277-8880-54cfe3078c5d",
+                              "from":  "analytics vw_daily_disruption_trends[observation_date]",
+                              "to":  "LocalDateTable_63711134-86ea-45dd-b06f-3c669d8a6dc0[Date]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "dd17d22f-0dd7-4b8a-9569-f5ab30a10737",
+                              "from":  "analytics vw_line_snapshot_status[snapshot_time]",
+                              "to":  "LocalDateTable_40c6a927-ae7c-4a54-bf4f-bb4e8ea517da[Date]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "88edb9a4-9d3f-4804-ad16-efc8227017f2",
+                              "from":  "analytics vw_operational_kpi_summary[first_snapshot_time]",
+                              "to":  "LocalDateTable_a33b06ab-31fe-434f-8c22-57328d0d9ad0[Date]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "01092fa2-5ea5-4de2-aa6c-8ee01cb0eddd",
+                              "from":  "analytics vw_operational_kpi_summary[latest_snapshot_time]",
+                              "to":  "LocalDateTable_37e442af-a2e7-4f5f-b8c4-777687979a54[Date]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "AutoDetected_080dfa9e-15a1-4b3f-b11f-60328ab93e57",
+                              "from":  "analytics vw_line_snapshot_status[line_id]",
+                              "to":  "Dim_Tube_Lines[line_id]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "AutoDetected_5a1ab0dd-e647-4ee4-842a-5aee3abef2dd",
+                              "from":  "analytics vw_line_reliability[line_id]",
+                              "to":  "Dim_Tube_Lines[line_id]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "AutoDetected_fa75046f-984c-4396-9355-d4dc015ae179",
+                              "from":  "analytics vw_major_disruptions_by_line[line_id]",
+                              "to":  "Dim_Tube_Lines[line_id]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  true
+                          },
+                          {
+                              "name":  "AutoDetected_cff10a84-cee9-4b2a-8f71-a517ebcaac7b",
+                              "from":  "analytics vw_line_snapshot_status[line_name]",
+                              "to":  "analytics vw_line_reliability[line_name]",
+                              "fromCardinality":  "Many",
+                              "toCardinality":  "One",
+                              "crossFiltering":  "OneDirection",
+                              "active":  false
+                          }
+                      ],
+    "liveDaxValidated":  true,
+    "queryDefinitionsUsed":  false,
+    "data":  {
+                 "global":  [
+                                {
+                                    "[Lines]":  11,
+                                    "[Snapshots]":  23,
+                                    "[GoodServicePct]":  73.122529644268781,
+                                    "[DisruptionPct]":  26.877470355731226,
+                                    "[Context]":  "Latest imported observation: 21 Oct 2026 13:34 (model time)  |  Import mode; refresh timestamp unavailable"
+                                }
+                            ],
+                 "byLine":  [
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Bakerloo",
+                                    "[LineGoodPct]":  78.260869565217391,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  0,
+                                    "[Severe]":  0,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Central",
+                                    "[LineGoodPct]":  60.869565217391312,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  1,
+                                    "[Severe]":  1,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Circle",
+                                    "[LineGoodPct]":  100,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  0,
+                                    "[Severe]":  0,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "District",
+                                    "[LineGoodPct]":  69.565217391304344,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  5,
+                                    "[Severe]":  0,
+                                    "[ClosureSuspension]":  5,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Hammersmith \u0026 City",
+                                    "[LineGoodPct]":  91.304347826086953,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  2,
+                                    "[Severe]":  2,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Jubilee",
+                                    "[LineGoodPct]":  91.304347826086953,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  2,
+                                    "[Severe]":  2,
+                                    "[ClosureSuspension]":  1,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Metropolitan",
+                                    "[LineGoodPct]":  17.391304347826086,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  8,
+                                    "[Severe]":  1,
+                                    "[ClosureSuspension]":  7,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Northern",
+                                    "[LineGoodPct]":  91.304347826086953,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  2,
+                                    "[Severe]":  2,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Piccadilly",
+                                    "[LineGoodPct]":  65.217391304347828,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  8,
+                                    "[Severe]":  3,
+                                    "[ClosureSuspension]":  5,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Victoria",
+                                    "[LineGoodPct]":  60.869565217391312,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  0,
+                                    "[Severe]":  0,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  0,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                },
+                                {
+                                    "Dim_Tube_Lines[line_name]":  "Waterloo \u0026 City",
+                                    "[LineGoodPct]":  78.260869565217391,
+                                    "[LineSnapshots]":  23,
+                                    "[Major]":  5,
+                                    "[Severe]":  0,
+                                    "[ClosureSuspension]":  0,
+                                    "[Planned]":  5,
+                                    "[GlobalLines]":  11,
+                                    "[GlobalSnapshots]":  23,
+                                    "[GlobalGoodPct]":  73.122529644268781,
+                                    "[GlobalDisruptionPct]":  26.877470355731226
+                                }
+                            ],
+                 "daily":  [
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-13 00:00:00",
+                                   "[DisruptionPct]":  18.181818181818183,
+                                   "[CollectionTimes]":  1,
+                                   "[LineObservations]":  11
+                               },
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-15 00:00:00",
+                                   "[DisruptionPct]":  54.54545454545454,
+                                   "[CollectionTimes]":  2,
+                                   "[LineObservations]":  22
+                               },
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-16 00:00:00",
+                                   "[DisruptionPct]":  18.181818181818183,
+                                   "[CollectionTimes]":  3,
+                                   "[LineObservations]":  33
+                               },
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-18 00:00:00",
+                                   "[DisruptionPct]":  54.54545454545454,
+                                   "[CollectionTimes]":  4,
+                                   "[LineObservations]":  44
+                               },
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-19 00:00:00",
+                                   "[DisruptionPct]":  27.27272727272727,
+                                   "[CollectionTimes]":  4,
+                                   "[LineObservations]":  44
+                               },
+                               {
+                                   "analytics vw_daily_disruption_trends[observation_date]":  "2026-10-21 00:00:00",
+                                   "[DisruptionPct]":  12.121212121212121,
+                                   "[CollectionTimes]":  9,
+                                   "[LineObservations]":  99
+                               }
+                           ],
+                 "status":  [
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Good Service",
+                                    "[Records]":  185,
+                                    "[SharePct]":  71.98443579766537,
+                                    "[Color]":  "#37D6BC"
+                                },
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Minor Delays",
+                                    "[Records]":  38,
+                                    "[SharePct]":  14.785992217898833,
+                                    "[Color]":  "#FFAA70"
+                                },
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Severe Delays",
+                                    "[Records]":  11,
+                                    "[SharePct]":  4.2801556420233462,
+                                    "[Color]":  "#FF747C"
+                                },
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Part Closure",
+                                    "[Records]":  10,
+                                    "[SharePct]":  3.8910505836575875,
+                                    "[Color]":  "#FFAA70"
+                                },
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Part Suspended",
+                                    "[Records]":  8,
+                                    "[SharePct]":  3.11284046692607,
+                                    "[Color]":  "#FF747C"
+                                },
+                                {
+                                    "analytics vw_disruption_severity[status_description]":  "Planned Closure",
+                                    "[Records]":  5,
+                                    "[SharePct]":  1.9455252918287937,
+                                    "[Color]":  "#FFAA70"
+                                }
+                            ]
+             }
+}

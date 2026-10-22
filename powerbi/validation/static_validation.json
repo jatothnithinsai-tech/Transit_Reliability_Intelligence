@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": [
+    "All PBIR JSON definitions validated against cached Microsoft schemas and transitive references.",
+    "All visual data bindings resolve to real TMDL columns/measures.",
+    "Visual formatting names and literal values checked against Microsoft Desktop 2.159 schema; textbox paragraphs checked against installed Desktop serializer conventions.",
+    "Exactly one 16:9 page; all 14 visual containers are within bounds and do not overlap.",
+    "Explicit interactions isolate global KPIs, daily trend, distribution and footer from line selection.",
+    "All 12 original table partitions, source mappings, PostgreSQL/Power Query definitions, PBIP pointer, report model reference and import cache are unchanged from backup."
+  ],
+  "visual_count": 14,
+  "measure_count": 17,
+  "backup": "backups\\before_dashboard_20261021_133622"
+}

@@ -1,0 +1,585 @@
+{
+  "columns": [
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "observation_date",
+      "data_type": "date"
+    },
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "snapshots_collected",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "total_line_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "disrupted_line_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "good_service_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_daily_disruption_trends",
+      "column_name": "observed_disruption_pct",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "status_severity",
+      "data_type": "integer"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "status_description",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "total_status_records",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "snapshots_observed",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "affected_tube_lines",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_disruption_severity",
+      "column_name": "percentage_of_records",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "line_id",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "line_name",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "total_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "disrupted_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "good_service_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "observed_good_service_pct",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_line_reliability",
+      "column_name": "observed_disruption_pct",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "line_id",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "line_name",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "snapshot_time",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "status_records",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "was_disrupted",
+      "data_type": "boolean"
+    },
+    {
+      "table_name": "vw_line_snapshot_status",
+      "column_name": "was_good_service",
+      "data_type": "boolean"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "line_id",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "line_name",
+      "data_type": "character varying"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "snapshots_observed",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "severe_delay_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "closure_or_suspension_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "planned_closure_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_major_disruptions_by_line",
+      "column_name": "major_status_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "tube_lines_monitored",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "total_snapshots",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "total_line_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "good_service_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "disrupted_observations",
+      "data_type": "bigint"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "observed_good_service_pct",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "observed_disruption_pct",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "major_status_observations",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "planned_closure_observations",
+      "data_type": "numeric"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "first_snapshot_time",
+      "data_type": "timestamp with time zone"
+    },
+    {
+      "table_name": "vw_operational_kpi_summary",
+      "column_name": "latest_snapshot_time",
+      "data_type": "timestamp with time zone"
+    }
+  ],
+  "summary": [
+    {
+      "tube_lines_monitored": 11,
+      "total_snapshots": 29,
+      "total_line_observations": 319,
+      "good_service_observations": 236,
+      "disrupted_observations": 83,
+      "observed_good_service_pct": "73.98",
+      "observed_disruption_pct": "26.02",
+      "major_status_observations": "39",
+      "planned_closure_observations": "5",
+      "first_snapshot_time": "2026-10-13 11:50:23+01:00",
+      "latest_snapshot_time": "2026-10-21 14:39:36+01:00"
+    }
+  ],
+  "line_keys": [
+    {
+      "rows": 11,
+      "distinct_keys": 11,
+      "null_keys": 0
+    }
+  ],
+  "snapshot_grain": [
+    {
+      "rows": 319,
+      "distinct_line_snapshots": 319,
+      "distinct_collection_times": 29,
+      "null_flags": 0,
+      "non_complementary_flags": 0
+    }
+  ],
+  "line_reliability": [
+    {
+      "line_id": "bakerloo",
+      "line_name": "Bakerloo",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 5,
+      "good_service_snapshots": 24,
+      "observed_good_service_pct": "82.76",
+      "observed_disruption_pct": "17.24"
+    },
+    {
+      "line_id": "central",
+      "line_name": "Central",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 9,
+      "good_service_snapshots": 20,
+      "observed_good_service_pct": "68.97",
+      "observed_disruption_pct": "31.03"
+    },
+    {
+      "line_id": "circle",
+      "line_name": "Circle",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 0,
+      "good_service_snapshots": 29,
+      "observed_good_service_pct": "100.00",
+      "observed_disruption_pct": "0.00"
+    },
+    {
+      "line_id": "district",
+      "line_name": "District",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 8,
+      "good_service_snapshots": 21,
+      "observed_good_service_pct": "72.41",
+      "observed_disruption_pct": "27.59"
+    },
+    {
+      "line_id": "hammersmith-city",
+      "line_name": "Hammersmith & City",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 3,
+      "good_service_snapshots": 26,
+      "observed_good_service_pct": "89.66",
+      "observed_disruption_pct": "10.34"
+    },
+    {
+      "line_id": "jubilee",
+      "line_name": "Jubilee",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 3,
+      "good_service_snapshots": 26,
+      "observed_good_service_pct": "89.66",
+      "observed_disruption_pct": "10.34"
+    },
+    {
+      "line_id": "metropolitan",
+      "line_name": "Metropolitan",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 24,
+      "good_service_snapshots": 5,
+      "observed_good_service_pct": "17.24",
+      "observed_disruption_pct": "82.76"
+    },
+    {
+      "line_id": "northern",
+      "line_name": "Northern",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 3,
+      "good_service_snapshots": 26,
+      "observed_good_service_pct": "89.66",
+      "observed_disruption_pct": "10.34"
+    },
+    {
+      "line_id": "piccadilly",
+      "line_name": "Piccadilly",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 8,
+      "good_service_snapshots": 21,
+      "observed_good_service_pct": "72.41",
+      "observed_disruption_pct": "27.59"
+    },
+    {
+      "line_id": "victoria",
+      "line_name": "Victoria",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 15,
+      "good_service_snapshots": 14,
+      "observed_good_service_pct": "48.28",
+      "observed_disruption_pct": "51.72"
+    },
+    {
+      "line_id": "waterloo-city",
+      "line_name": "Waterloo & City",
+      "total_snapshots": 29,
+      "disrupted_snapshots": 5,
+      "good_service_snapshots": 24,
+      "observed_good_service_pct": "82.76",
+      "observed_disruption_pct": "17.24"
+    }
+  ],
+  "daily": [
+    {
+      "observation_date": "2026-10-13",
+      "snapshots_collected": 1,
+      "total_line_observations": 11,
+      "disrupted_line_observations": 2,
+      "good_service_observations": 9,
+      "observed_disruption_pct": "18.18"
+    },
+    {
+      "observation_date": "2026-10-15",
+      "snapshots_collected": 3,
+      "total_line_observations": 33,
+      "disrupted_line_observations": 18,
+      "good_service_observations": 15,
+      "observed_disruption_pct": "54.55"
+    },
+    {
+      "observation_date": "2026-10-16",
+      "snapshots_collected": 3,
+      "total_line_observations": 33,
+      "disrupted_line_observations": 6,
+      "good_service_observations": 27,
+      "observed_disruption_pct": "18.18"
+    },
+    {
+      "observation_date": "2026-10-18",
+      "snapshots_collected": 4,
+      "total_line_observations": 44,
+      "disrupted_line_observations": 24,
+      "good_service_observations": 20,
+      "observed_disruption_pct": "54.55"
+    },
+    {
+      "observation_date": "2026-10-19",
+      "snapshots_collected": 4,
+      "total_line_observations": 44,
+      "disrupted_line_observations": 12,
+      "good_service_observations": 32,
+      "observed_disruption_pct": "27.27"
+    },
+    {
+      "observation_date": "2026-10-21",
+      "snapshots_collected": 14,
+      "total_line_observations": 154,
+      "disrupted_line_observations": 21,
+      "good_service_observations": 133,
+      "observed_disruption_pct": "13.64"
+    }
+  ],
+  "severity": [
+    {
+      "status_severity": 10,
+      "status_description": "Good Service",
+      "total_status_records": 236,
+      "snapshots_observed": 29,
+      "affected_tube_lines": 11,
+      "percentage_of_records": "72.84"
+    },
+    {
+      "status_severity": 9,
+      "status_description": "Minor Delays",
+      "total_status_records": 48,
+      "snapshots_observed": 24,
+      "affected_tube_lines": 6,
+      "percentage_of_records": "14.81"
+    },
+    {
+      "status_severity": 6,
+      "status_description": "Severe Delays",
+      "total_status_records": 17,
+      "snapshots_observed": 11,
+      "affected_tube_lines": 6,
+      "percentage_of_records": "5.25"
+    },
+    {
+      "status_severity": 5,
+      "status_description": "Part Closure",
+      "total_status_records": 10,
+      "snapshots_observed": 5,
+      "affected_tube_lines": 2,
+      "percentage_of_records": "3.09"
+    },
+    {
+      "status_severity": 3,
+      "status_description": "Part Suspended",
+      "total_status_records": 8,
+      "snapshots_observed": 8,
+      "affected_tube_lines": 2,
+      "percentage_of_records": "2.47"
+    },
+    {
+      "status_severity": 4,
+      "status_description": "Planned Closure",
+      "total_status_records": 5,
+      "snapshots_observed": 5,
+      "affected_tube_lines": 1,
+      "percentage_of_records": "1.54"
+    }
+  ],
+  "major": [
+    {
+      "line_id": "bakerloo",
+      "line_name": "Bakerloo",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 0,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 0
+    },
+    {
+      "line_id": "central",
+      "line_name": "Central",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 1,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 1
+    },
+    {
+      "line_id": "circle",
+      "line_name": "Circle",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 0,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 0
+    },
+    {
+      "line_id": "district",
+      "line_name": "District",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 0,
+      "closure_or_suspension_snapshots": 5,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 5
+    },
+    {
+      "line_id": "hammersmith-city",
+      "line_name": "Hammersmith & City",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 3,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 3
+    },
+    {
+      "line_id": "jubilee",
+      "line_name": "Jubilee",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 3,
+      "closure_or_suspension_snapshots": 1,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 3
+    },
+    {
+      "line_id": "metropolitan",
+      "line_name": "Metropolitan",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 4,
+      "closure_or_suspension_snapshots": 7,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 11
+    },
+    {
+      "line_id": "northern",
+      "line_name": "Northern",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 3,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 3
+    },
+    {
+      "line_id": "piccadilly",
+      "line_name": "Piccadilly",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 3,
+      "closure_or_suspension_snapshots": 5,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 8
+    },
+    {
+      "line_id": "victoria",
+      "line_name": "Victoria",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 0,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 0,
+      "major_status_snapshots": 0
+    },
+    {
+      "line_id": "waterloo-city",
+      "line_name": "Waterloo & City",
+      "snapshots_observed": 29,
+      "severe_delay_snapshots": 0,
+      "closure_or_suspension_snapshots": 0,
+      "planned_closure_snapshots": 5,
+      "major_status_snapshots": 5
+    }
+  ],
+  "major_keys": [
+    {
+      "rows": 11,
+      "distinct_keys": 11,
+      "null_keys": 0
+    }
+  ],
+  "view_definitions": [
+    {
+      "viewname": "vw_daily_disruption_trends",
+      "definition": " SELECT ((snapshot_time AT TIME ZONE 'Europe/London'::text))::date AS observation_date,\n    count(DISTINCT snapshot_time) AS snapshots_collected,\n    count(*) AS total_line_observations,\n    count(*) FILTER (WHERE was_disrupted) AS disrupted_line_observations,\n    count(*) FILTER (WHERE was_good_service) AS good_service_observations,\n    round(((100.0 * (count(*) FILTER (WHERE was_disrupted))::numeric) / (NULLIF(count(*), 0))::numeric), 2) AS observed_disruption_pct\n   FROM analytics.vw_line_snapshot_status\n  GROUP BY (((snapshot_time AT TIME ZONE 'Europe/London'::text))::date);"
+    },
+    {
+      "viewname": "vw_disruption_severity",
+      "definition": " SELECT status_severity,\n    status_description,\n    count(*) AS total_status_records,\n    count(DISTINCT snapshot_time) AS snapshots_observed,\n    count(DISTINCT line_id) AS affected_tube_lines,\n    round(((100.0 * (count(*))::numeric) / NULLIF(sum(count(*)) OVER (), (0)::numeric)), 2) AS percentage_of_records\n   FROM staging.tube_status_history\n  GROUP BY status_severity, status_description;"
+    },
+    {
+      "viewname": "vw_line_reliability",
+      "definition": " SELECT line_id,\n    line_name,\n    count(*) AS total_snapshots,\n    count(*) FILTER (WHERE was_disrupted) AS disrupted_snapshots,\n    count(*) FILTER (WHERE was_good_service) AS good_service_snapshots,\n    round(((100.0 * (count(*) FILTER (WHERE was_good_service))::numeric) / (NULLIF(count(*), 0))::numeric), 2) AS observed_good_service_pct,\n    round(((100.0 * (count(*) FILTER (WHERE was_disrupted))::numeric) / (NULLIF(count(*), 0))::numeric), 2) AS observed_disruption_pct\n   FROM analytics.vw_line_snapshot_status\n  GROUP BY line_id, line_name;"
+    },
+    {
+      "viewname": "vw_line_snapshot_status",
+      "definition": " SELECT h.line_id,\n    l.line_name,\n    h.snapshot_time,\n    count(*) AS status_records,\n    bool_or((h.status_severity <> 10)) AS was_disrupted,\n    bool_and((h.status_severity = 10)) AS was_good_service\n   FROM (staging.tube_status_history h\n     JOIN staging.tube_lines l ON (((h.line_id)::text = (l.line_id)::text)))\n  GROUP BY h.line_id, l.line_name, h.snapshot_time;"
+    },
+    {
+      "viewname": "vw_major_disruptions_by_line",
+      "definition": " WITH line_snapshot_flags AS (\n         SELECT tube_status_history.line_id,\n            tube_status_history.snapshot_time,\n            bool_or(((tube_status_history.status_description)::text = 'Severe Delays'::text)) AS has_severe_delays,\n            bool_or(((tube_status_history.status_description)::text = ANY ((ARRAY['Part Closure'::character varying, 'Part Suspended'::character varying])::text[]))) AS has_closure_or_suspension,\n            bool_or(((tube_status_history.status_description)::text = 'Planned Closure'::text)) AS has_planned_closure\n           FROM staging.tube_status_history\n          GROUP BY tube_status_history.line_id, tube_status_history.snapshot_time\n        )\n SELECT l.line_id,\n    l.line_name,\n    count(*) AS snapshots_observed,\n    count(*) FILTER (WHERE s.has_severe_delays) AS severe_delay_snapshots,\n    count(*) FILTER (WHERE s.has_closure_or_suspension) AS closure_or_suspension_snapshots,\n    count(*) FILTER (WHERE s.has_planned_closure) AS planned_closure_snapshots,\n    count(*) FILTER (WHERE (s.has_severe_delays OR s.has_closure_or_suspension OR s.has_planned_closure)) AS major_status_snapshots\n   FROM (line_snapshot_flags s\n     JOIN staging.tube_lines l ON (((s.line_id)::text = (l.line_id)::text)))\n  GROUP BY l.line_id, l.line_name;"
+    },
+    {
+      "viewname": "vw_operational_kpi_summary",
+      "definition": " WITH snapshot_summary AS (\n         SELECT count(DISTINCT vw_line_snapshot_status.line_id) AS tube_lines_monitored,\n            count(DISTINCT vw_line_snapshot_status.snapshot_time) AS total_snapshots,\n            count(*) AS total_line_observations,\n            count(*) FILTER (WHERE vw_line_snapshot_status.was_good_service) AS good_service_observations,\n            count(*) FILTER (WHERE vw_line_snapshot_status.was_disrupted) AS disrupted_observations,\n            min(vw_line_snapshot_status.snapshot_time) AS first_snapshot_time,\n            max(vw_line_snapshot_status.snapshot_time) AS latest_snapshot_time\n           FROM analytics.vw_line_snapshot_status\n        ), major_summary AS (\n         SELECT COALESCE(sum(vw_major_disruptions_by_line.major_status_snapshots), (0)::numeric) AS major_status_observations,\n            COALESCE(sum(vw_major_disruptions_by_line.planned_closure_snapshots), (0)::numeric) AS planned_closure_observations\n           FROM analytics.vw_major_disruptions_by_line\n        )\n SELECT s.tube_lines_monitored,\n    s.total_snapshots,\n    s.total_line_observations,\n    s.good_service_observations,\n    s.disrupted_observations,\n    round(((100.0 * (s.good_service_observations)::numeric) / (NULLIF(s.total_line_observations, 0))::numeric), 2) AS observed_good_service_pct,\n    round(((100.0 * (s.disrupted_observations)::numeric) / (NULLIF(s.total_line_observations, 0))::numeric), 2) AS observed_disruption_pct,\n    m.major_status_observations,\n    m.planned_closure_observations,\n    s.first_snapshot_time,\n    s.latest_snapshot_time\n   FROM (snapshot_summary s\n     CROSS JOIN major_summary m);"
+    }
+  ]
+}

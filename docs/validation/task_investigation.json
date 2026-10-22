@@ -1,0 +1,19 @@
+﻿{
+    "checked_at":  "2026-10-21T23:43:31.5224013+01:00",
+    "original_result_hex":  "0xC000013A",
+    "original_trigger_time":  "2026-10-21T23:29:10+01:00",
+    "current_last_run":  "2026-10-21T23:41:17.0000000+01:00",
+    "current_last_result":  0,
+    "history_enabled":  false,
+    "history_enable_attempt":  "Access denied (exit 5); administrator token required",
+    "task_definition_unchanged":  true,
+    "logon_type":  "InteractiveToken",
+    "power_resume_evidence":  [
+                                  {
+                                      "time":  "2026-10-21T23:29:10.4451337+01:00",
+                                      "event_id":  1,
+                                      "message":  "The system has returned from a low power state.\r\n\r\nSleep Time: ‎2026‎-‎10‎-‎21T16:01:50.463623200Z\r\nWake Time: ‎2026‎-‎10‎-‎21T22:29:09.058471900Z\r\n\r\nWake Source: Unknown"
+                                  }
+                              ],
+    "attribution":  "Standby explains the sampling gap. Resume coincided with the interrupted attempt, but the signal sender cannot be identified because task history was disabled."
+}

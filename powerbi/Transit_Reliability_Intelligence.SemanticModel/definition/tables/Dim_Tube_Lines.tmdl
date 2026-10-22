@@ -1,0 +1,33 @@
+table Dim_Tube_Lines
+	lineageTag: 34e897cb-cee2-4076-9012-ef5195434307
+
+	column line_id
+		dataType: string
+		lineageTag: 3929b7c1-9c33-4105-84fc-5fbbd65d2445
+		summarizeBy: none
+		sourceColumn: line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_name
+		dataType: string
+		lineageTag: 3dc3e817-0b2e-4680-a6aa-cf8ec459d7d1
+		summarizeBy: none
+		sourceColumn: line_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Tube_Lines = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost:5432", "transit_reliability_intelligence"),
+				    analytics_vw_line_reliability = Source{[Schema="analytics",Item="vw_line_reliability"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(analytics_vw_line_reliability,{"line_id", "line_name"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
