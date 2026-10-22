@@ -4,6 +4,27 @@ A local data engineering and analytics project that turns Transport for London T
 
 Python extracts the TfL API, preserves JSON snapshots, validates transformed records, and loads PostgreSQL transactionally. SQL separates raw status records from line-and-time observations so simultaneous statuses do not inflate reliability KPIs. An optional Boto3 adapter adds immutable, checksum-verified S3 archival, tested entirely with Moto.
 
+![Power BI dashboard showing Tube reliability KPI cards, line comparisons, daily disruption trends, status distribution and a Tube Line filter](screenshots/dashboard.png)
+
+*Static preview of the completed Power BI dashboard. Figures reflect the data imported when the screenshot was captured.*
+
+**Published on GitHub:** [Transit Reliability Intelligence](https://github.com/jatothnithinsai-tech/Transit_Reliability_Intelligence).
+
+## Dashboard overview
+
+The completed Power BI report brings network coverage, sampled service performance and disruption patterns into one operational view. It contains four KPI cards, four charts, a Tube Line slicer and explanatory context.
+
+- **KPI cards:** Total Tube Lines counts distinct monitored lines; Total Historical Snapshots counts distinct collection timestamps. Observed Good Service % measures line/time observations where every status is Good Service, while Observed Disruption % measures observations with any non-Good-Service status. Each line/time pair counts once, even when it contains multiple statuses.
+- **Tube Line Reliability:** The Observed Good Service % by Tube Line bar chart compares sampled reliability across the 11 Tube lines, helping identify lines with lower observed service performance.
+- **Disruption trends:** Daily Observed Disruption % shows the share of disrupted line/time observations on each Europe/London calendar day. Markers represent sampled days; gaps are unobserved periods.
+- **Status distribution:** Status Record Distribution shows raw record counts by service-status description. Multiple statuses can coexist within one observation, so these counts use a different denominator from the reliability KPIs.
+- **Major disruptions:** Major Disruption Snapshots by Tube Line compares distinct line/time observations containing Severe Delays, Part Closure, Part Suspended or Planned Closure. These counts represent sampled observations, rather than unique incidents or disruption duration.
+- **Interactive filtering:** The Tube Line slicer filters the reliability and major-disruption bar charts. All four KPI cards, the daily trend and the status distribution retain their global network scope. Clear the selection to compare all lines again.
+
+The screenshot above is a static portfolio preview. Open [Transit_Reliability_Intelligence.pbip](powerbi/Transit_Reliability_Intelligence.pbip) in Power BI Desktop to explore the interactive report and refresh it against your local database. The report and semantic model source are included in this repository.
+
+## Optional AWS extension
+
 **AWS status: IMPLEMENTED AND LOCALLY VALIDATED; NOT DEPLOYED.** No AWS account login, real credentials, paid resources, or Free Tier benefits are required for the local project. Cloud archival is disabled by default.
 
 The implemented cloud extension defines **EventBridge Scheduler → Lambda → TfL → private S3**, with a shared HTTP client, S3 execution leases, checksum verification, scoped IAM, failure queues and CloudWatch freshness monitoring. These components are validated with local mocks; real AWS execution and IAM enforcement remain unverified. See [AWS readiness](docs/aws_readiness.md), [architecture](docs/aws_architecture.md), [deployment proposal](docs/aws_deployment_plan.md), [environment](docs/aws_environment.md), [operations](docs/aws_operations.md), [London cost estimate](docs/aws_costs.md), and [local download/integration](docs/aws_local_integration.md).
@@ -66,15 +87,11 @@ Publication checks rerun on 22 October 2026; earlier live checks are retained as
 | Power BI | PBIR checks passed for 14 visuals; 12 TMDL tables and 17 measures parsed; earlier live DAX evidence retained |
 | Terraform | 1.13.5 formatting/schema validation and 3 mocked plan tests passed; no account-backed plan/apply |
 | Lambda ZIP | Built locally; imports independently of the virtual environment |
-| Publication review | Candidate and staged-blob scans passed; local commit prepared; no GitHub push |
+| Publication review | Candidate and staged-blob scans passed; repository published on GitHub |
 
 See the [publication review](docs/publication_review.md), [testing evidence](docs/testing.md), [earlier local verification](docs/local_verification.md), and [completion report](docs/completion_report.md) for scope and limitations. Database and imported dashboard counts can differ until Power BI refreshes.
 
-## Dashboard and screenshots
-
-The existing Power BI source is [Transit_Reliability_Intelligence.pbip](powerbi/Transit_Reliability_Intelligence.pbip). It contains four KPI cards, four charts, a Tube Line slicer, and explanatory context. Line selection filters the two line charts; global cards, daily trend, and status distribution retain their stated global scope.
-
-No dashboard screenshot is included: none was available in the workspace. To add a portfolio preview, open the PBIP in Power BI Desktop, refresh against your local database, and save a report-only image as `screenshots/dashboard.png` after reviewing it for private details. The source report and model are included; a screenshot is optional for publication.
+The linked review records retain their original review dates; the current GitHub publication status is recorded below.
 
 ## Local setup
 
@@ -127,18 +144,20 @@ Storage and future cloud setup are covered in [the AWS deployment plan](docs/aws
 - [Data dictionary](docs/data_dictionary.md)
 - [KPI definitions and interpretation](docs/kpi_definitions.md)
 - [Testing and verification](docs/testing.md)
-- [Publication review and remaining GitHub action](docs/publication_review.md)
+- [Historical publication review](docs/publication_review.md)
 - [AWS architecture, deployment and rollback](docs/aws_deployment_plan.md)
 - [Free AWS Educate practice](docs/aws_educate_guide.md)
 - [Interview walkthrough](docs/interview_walkthrough.md)
 
 ## GitHub publication
 
-The reviewed source and documentation are prepared in a local Git commit. No GitHub remote was configured at review time, and nothing has been pushed. After explicitly approving publication, create an empty GitHub repository without an initial README, license or `.gitignore`, replace `YOUR_USERNAME` below, and run:
+This project is already published at [jatothnithinsai-tech/Transit_Reliability_Intelligence](https://github.com/jatothnithinsai-tech/Transit_Reliability_Intelligence) on the `master` branch. The repository includes the Python ETL pipeline, PostgreSQL analytics, Power BI report and semantic model source, dashboard screenshot and technical documentation.
+
+To work with a local copy:
 
 ```powershell
-git remote add origin https://github.com/YOUR_USERNAME/Transit_Reliability_Intelligence.git
-git push -u origin master
+git clone https://github.com/jatothnithinsai-tech/Transit_Reliability_Intelligence.git
+cd Transit_Reliability_Intelligence
 ```
 
 Local data, `.env`, credentials, logs, virtual environments, binary Power BI files, caches, backups, Terraform inputs/state/plans, and deployment ZIPs remain excluded. The `.env.example`, Terraform variable example and provider lock file are safe templates/metadata and are included. A real AWS deployment requires separate approval and is unrelated to GitHub publication.
