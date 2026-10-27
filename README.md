@@ -4,6 +4,10 @@ A local data engineering and analytics project that turns Transport for London T
 
 Python extracts the TfL API, preserves JSON snapshots, validates transformed records, and loads PostgreSQL transactionally. SQL separates raw status records from line-and-time observations so simultaneous statuses do not inflate reliability KPIs. An optional Boto3 adapter adds immutable, checksum-verified S3 archival, tested entirely with Moto.
 
+**Decision supported:** identify lines and sampled days that warrant a closer operational review, with a defensible line/time denominator.
+
+**Explore the evidence:** [Python pipeline](src/) · [SQL analytics](sql/) · [editable Power BI project](powerbi/Transit_Reliability_Intelligence.pbip) · [KPI definitions](docs/kpi_definitions.md) · [recorded verification](docs/testing.md)
+
 ![Power BI dashboard showing Tube reliability KPI cards, line comparisons, daily disruption trends, status distribution and a Tube Line filter](screenshots/dashboard.png)
 
 *Static preview of the completed Power BI dashboard. Figures reflect the data imported when the screenshot was captured.*
