@@ -1,4 +1,4 @@
-"""Estimate the reviewed hourly workload from public London price-list files.
+"""Estimate the reviewed hourly workload from public regional price-list files.
 
 Default: cached/offline calculation. --refresh downloads public unsigned JSON
 from AWS's price-list website; it never authenticates or provisions anything.
@@ -12,7 +12,8 @@ from urllib.request import urlopen
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-REGION = "eu-west-2"
+DEFAULT_REGION = "eu-west-2"
+REGION_PREFIXES = {"eu-west-2": "EUW2", "eu-north-1": "EUN1"}
 SERVICES = ["AmazonCloudWatch", "AWSLambda", "AmazonS3"]
 
 
@@ -34,12 +35,15 @@ def rate(document, usage):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--refresh", action="store_true")
+    parser.add_argument("--region", choices=REGION_PREFIXES, default=DEFAULT_REGION)
     args = parser.parse_args()
+    region = args.region
+    prefix = REGION_PREFIXES[region]
     cache = ROOT / ".tools/aws-pricing"
     documents, sources = {}, {}
     for service in SERVICES:
-        url = f"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/{service}/current/{REGION}/index.json"
-        path = cache / f"{service}-{REGION}.json"
+        url = f"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/{service}/current/{region}/index.json"
+        path = cache / f"{service}-{region}.json"
         if args.refresh:
             cache.mkdir(parents=True, exist_ok=True)
             with urlopen(url, timeout=30) as response:
@@ -51,14 +55,14 @@ def main():
         documents[service] = parsed
         sources[service] = {"url": url, "publication_date": parsed.get("publicationDate")}
     selections = {
-        "alarm": ("AmazonCloudWatch", "EUW2-CW:AlarmMonitorUsage"),
-        "metric": ("AmazonCloudWatch", "EUW2-CW:MetricMonitorUsage"),
-        "logs_ingestion": ("AmazonCloudWatch", "EUW2-DataProcessing-Bytes"),
-        "lambda_duration": ("AWSLambda", "EUW2-Lambda-GB-Second"),
-        "lambda_requests": ("AWSLambda", "EUW2-Request"),
-        "s3_storage": ("AmazonS3", "EUW2-TimedStorage-ByteHrs"),
-        "s3_put": ("AmazonS3", "EUW2-Requests-Tier1"),
-        "s3_get": ("AmazonS3", "EUW2-Requests-Tier2"),
+        "alarm": ("AmazonCloudWatch", f"{prefix}-CW:AlarmMonitorUsage"),
+        "metric": ("AmazonCloudWatch", f"{prefix}-CW:MetricMonitorUsage"),
+        "logs_ingestion": ("AmazonCloudWatch", f"{prefix}-DataProcessing-Bytes"),
+        "lambda_duration": ("AWSLambda", f"{prefix}-Lambda-GB-Second"),
+        "lambda_requests": ("AWSLambda", f"{prefix}-Request"),
+        "s3_storage": ("AmazonS3", f"{prefix}-TimedStorage-ByteHrs"),
+        "s3_put": ("AmazonS3", f"{prefix}-Requests-Tier1"),
+        "s3_get": ("AmazonS3", f"{prefix}-Requests-Tier2"),
     }
     rates = {name: rate(documents[service], usage) for name, (service, usage) in selections.items()}
     value = lambda name: Decimal(rates[name]["usd"])
@@ -75,7 +79,7 @@ def main():
         "scheduler_gross_reference_rate": runs / 1000000,  # Official $1/M example, no free deduction.
     }
     result = {"checked_at_london": datetime.now(ZoneInfo("Europe/London")).isoformat(),
-              "region": REGION, "currency": "USD", "free_tier_deductions": 0,
+              "region": region, "currency": "USD", "free_tier_deductions": 0,
               "assumptions": {"runs_per_30_day_month": 720, "average_lambda_seconds": 2,
                 "lambda_memory_mb": 128, "snapshot_kib": 20, "raw_retention_days": 90,
                 "control_retention_days": 7, "custom_metrics": 1, "alarms": 4},
@@ -85,10 +89,10 @@ def main():
               "exclusions": ["tax and currency conversion", "retries/failures and extra downloads",
                 "small log-retention/SQS/SNS usage", "optional Secrets Manager (~$0.40 plus reads)",
                 "growth beyond the stated workload"],
-              "account_eligibility": "Unverified; no usable AWS credentials or profile available"}
-    target = ROOT / "docs/validation/aws_cost_estimate.json"
+              "account_eligibility": "Not assessed by this public-pricing calculation; no benefits deducted"}
+    target = ROOT / "docs/validation" / ("aws_cost_estimate.json" if region == DEFAULT_REGION else f"aws_cost_estimate_{region}.json")
     target.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"region": REGION, "monthly_subtotal_usd": str(sum(costs.values())),
+    print(json.dumps({"region": region, "monthly_subtotal_usd": str(sum(costs.values())),
                       "planning_allowance_usd": [1, 3], "rates_found": len(rates)}))
 
 

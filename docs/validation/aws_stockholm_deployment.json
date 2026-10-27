@@ -1,0 +1,55 @@
+{
+  "recorded_on": "2026-10-26",
+  "region": "eu-north-1",
+  "terraform_version": "1.13.5",
+  "aws_provider_version": "6.69.1",
+  "initial_apply": {
+    "added": 23,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "enable_hourly_apply": {
+    "added": 0,
+    "changed": 2,
+    "destroyed": 0
+  },
+  "mocked_tests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "live_test": {
+    "verified_at_utc": "2026-10-26T23:50:33.442513+00:00",
+    "http_status": 200,
+    "tube_lines": 11,
+    "snapshot_bytes": 13761,
+    "checksum_verified": true,
+    "duplicate_replay_verified": true,
+    "public_access_blocked": true,
+    "versioning_enabled": true,
+    "success_log_verified": true
+  },
+  "scheduler": {
+    "state": "ENABLED",
+    "expression": "rate(1 hour)",
+    "first_scheduled_delivery_verified": true
+  },
+  "notifications": {
+    "confirmed_subscriber": false
+  },
+  "scope": "Raw snapshot ingestion only; PostgreSQL loading and Power BI refresh remain local",
+  "automatic_run": {
+    "verified_at_utc": "2026-10-27T00:25:35.235247+00:00",
+    "region": "eu-north-1",
+    "scheduled_time": "2026-10-27T00:24:34+00:00",
+    "snapshot_time": "2026-10-27T00:25:25.230891+00:00",
+    "execution_id": "946adfef-42a6-4637-bf8a-a8f24116bf24",
+    "sha256": "201326face6ced955ccb48b2d42b027495dda8f5b5b075c87a31e559e501babb",
+    "checksum_verified": true,
+    "tube_lines": 11,
+    "manual_event_excluded": true,
+    "verification_mode": "temporary_minute_schedule",
+    "restored_schedule_expression": "rate(1 hour)",
+    "restored_schedule_state": "ENABLED"
+  },
+  "scheduler_input_fix": "Preserve literal context tokens after Terraform jsonencode; regression assertion added."
+}

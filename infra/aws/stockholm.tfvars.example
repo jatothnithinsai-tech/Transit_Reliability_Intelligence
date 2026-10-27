@@ -1,0 +1,8 @@
+# Stockholm alternative. Copy to terraform.tfvars and fill in your account.
+# Check organization permissions and regional prices before deployment.
+deployment_authorized = false
+aws_account_id        = "000000000000"
+bucket_name           = "replace-with-a-globally-unique-transit-bucket"
+region                = "eu-north-1"
+schedule_enabled      = false
+use_api_secret        = false

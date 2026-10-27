@@ -35,12 +35,13 @@ resource "aws_scheduler_schedule" "hourly" {
   target {
     arn      = aws_lambda_function.ingestion.arn
     role_arn = aws_iam_role.scheduler.arn
-    input = jsonencode({
+    # Preserve literal Scheduler context tokens.
+    input = replace(replace(jsonencode({
       scheduled_time = "<aws.scheduler.scheduled-time>"
       execution_id   = "<aws.scheduler.execution-id>"
       schedule_arn   = "<aws.scheduler.schedule-arn>"
       attempt_number = "<aws.scheduler.attempt-number>"
-    })
+    }), "\\u003c", "<"), "\\u003e", ">")
     retry_policy {
       maximum_event_age_in_seconds = 3600
       maximum_retry_attempts       = 2
