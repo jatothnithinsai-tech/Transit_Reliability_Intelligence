@@ -27,6 +27,7 @@ mock_provider "aws" {
 }
 
 variables {
+  schedule_enabled = false
   aws_account_id = "000000000000"
   bucket_name    = "transit-offline-validation"
   # Mock-only authorization permits evaluation; real defaults remain false.
@@ -46,6 +47,10 @@ run "secure_hourly_architecture" {
   assert {
     condition     = jsondecode(aws_scheduler_schedule.hourly.target[0].input).scheduled_time == "<aws.scheduler.scheduled-time>"
     error_message = "Scheduler must send stable scheduled-time context."
+  }
+  assert {
+    condition     = strcontains(aws_scheduler_schedule.hourly.target[0].input, "<aws.scheduler.scheduled-time>") && !strcontains(aws_scheduler_schedule.hourly.target[0].input, "\\u003c")
+    error_message = "Scheduler context tokens must remain literal, not Unicode-escaped."
   }
   assert {
     condition     = aws_s3_bucket_public_access_block.raw.block_public_acls && aws_s3_bucket_public_access_block.raw.block_public_policy && aws_s3_bucket_public_access_block.raw.ignore_public_acls && aws_s3_bucket_public_access_block.raw.restrict_public_buckets
