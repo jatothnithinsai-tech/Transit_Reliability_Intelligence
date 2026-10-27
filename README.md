@@ -25,9 +25,11 @@ The screenshot above is a static portfolio preview. Open [Transit_Reliability_In
 
 ## Optional AWS extension
 
-**AWS status: IMPLEMENTED AND LOCALLY VALIDATED; NOT DEPLOYED.** No AWS account login, real credentials, paid resources, or Free Tier benefits are required for the local project. Cloud archival is disabled by default.
+**AWS ingestion status: DEPLOYED IN STOCKHOLM (`eu-north-1`) ON 26 OCTOBER 2026.** See the [live deployment runbook](docs/aws_stockholm_deployment.md) for verified results, costs and remaining work. The original local configuration remains cloud-disabled by default.
 
-The implemented cloud extension defines **EventBridge Scheduler → Lambda → TfL → private S3**, with a shared HTTP client, S3 execution leases, checksum verification, scoped IAM, failure queues and CloudWatch freshness monitoring. These components are validated with local mocks; real AWS execution and IAM enforcement remain unverified. See [AWS readiness](docs/aws_readiness.md), [architecture](docs/aws_architecture.md), [deployment proposal](docs/aws_deployment_plan.md), [environment](docs/aws_environment.md), [operations](docs/aws_operations.md), [London cost estimate](docs/aws_costs.md), and [local download/integration](docs/aws_local_integration.md).
+**Local setup:** No AWS account login, real credentials, paid resources, or Free Tier benefits are required for the local project. Cloud archival is disabled by default.
+
+The implemented cloud extension defines **EventBridge Scheduler → Lambda → TfL → private S3**, with a shared HTTP client, S3 execution leases, checksum verification, scoped IAM, failure queues and CloudWatch freshness monitoring. The deployed Lambda was manually verified against TfL and S3, including checksum and duplicate-replay checks. Automatic Scheduler delivery was verified with a temporary one-minute interval, then the enabled hourly schedule was restored. The notification subscription remains to be configured. Historical mock-only reviews below retain their original scope. See [AWS readiness](docs/aws_readiness.md), [architecture](docs/aws_architecture.md), [deployment proposal](docs/aws_deployment_plan.md), [environment](docs/aws_environment.md), [operations](docs/aws_operations.md), [London cost estimate](docs/aws_costs.md), and [local download/integration](docs/aws_local_integration.md).
 
 ## Business questions and KPIs
 
