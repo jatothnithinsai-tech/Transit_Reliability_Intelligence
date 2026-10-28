@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "schema_files": 21,
+  "analytical_files_identical": 21,
+  "schema_compatibility_fallbacks": [],
+  "errors": [],
+  "dax": {
+    "status": "PASS",
+    "checks": [
+      {
+        "metric": "Lines",
+        "dax": "11",
+        "sql": 11.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "Snapshots",
+        "dax": "162",
+        "sql": 162.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "Good",
+        "dax": 62.96296296296296,
+        "sql": 62.96296296296296,
+        "status": "PASS"
+      },
+      {
+        "metric": "Disrupted",
+        "dax": 37.03703703703704,
+        "sql": 37.03703703703704,
+        "status": "PASS"
+      }
+    ],
+    "method": "Actual isolated Desktop DAX engine versus read-only PostgreSQL observations through the same import cutoff; later collected samples are excluded",
+    "import_cutoff": "2026-10-27 13:56:42+00:00",
+    "scope": "Snapshot observations; never uptime or punctuality"
+  },
+  "desktop_pages": [
+    {
+      "visual_labels": [
+        "Total Tube Lines 11.",
+        "Total Historical Snapshots 162.",
+        "Observed Good Service % 62.96%.",
+        "Observed Disruption % 37.04%.",
+        "Observation Context Latest imported observation: 27 Oct 2026 13:56 (model time) | Import mode; refresh timestamp unavailable.",
+        "Desktop layout",
+        "Mobile layout",
+        "Many to one relationship from analytics vw_line_snapshot_status to Dim_Tube_Lines",
+        "Many to one relationship from analytics vw_line_snapshot_status to analytics vw_line_reliability",
+        "Many to one relationship from analytics vw_major_disruptions_by_line to Dim_Tube_Lines",
+        "Many to one relationship from analytics vw_line_reliability to Dim_Tube_Lines"
+      ],
+      "screenshot": "transit_executive_dashboard-canvas.png",
+      "errors": [],
+      "page": "Transit Reliability"
+    }
+  ],
+  "semantic_model": "All model source files, relationships, data connections and measures are byte-identical to the baseline",
+  "interactions": "Existing filter, tooltip and drillthrough definitions preserved. Page switching verified; complete slicer/drillthrough/tooltip usability not exercised.",
+  "capture_method": "Native Power BI Desktop PrintWindow; lossless crop of report canvas; no chart reconstruction or value edits",
+  "capture_date": "2026-10-28",
+  "desktop_serialization_note": "Desktop can rewrite project serialization while saving its working copy. Final publication assets are materialized from the preserved baseline and the presentation script; source preservation is checked on those final assets. Captures show the actual rendered presentation and imported values."
+}

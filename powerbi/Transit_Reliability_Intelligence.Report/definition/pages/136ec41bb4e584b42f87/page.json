@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#081322'"
+                    "Value": "'#F6F8FC'"
                   }
                 }
               }
@@ -23,7 +23,7 @@
           "transparency": {
             "expr": {
               "Literal": {
-                "Value": "0L"
+                "Value": "0D"
               }
             }
           }

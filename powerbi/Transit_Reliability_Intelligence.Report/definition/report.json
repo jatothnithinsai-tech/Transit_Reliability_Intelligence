@@ -9,6 +9,15 @@
         "page": "2.3.1"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Transit_Operations_Light",
+      "type": "RegisteredResources",
+      "reportVersionAtImport": {
+        "visual": "2.1.0",
+        "report": "3.0.0",
+        "page": "2.0.0"
+      }
     }
   },
   "objects": {
@@ -37,6 +46,17 @@
           "type": "BaseTheme"
         }
       ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Transit_Operations_Light",
+          "path": "Transit_Operations_Light.json",
+          "type": "CustomTheme"
+        }
+      ]
     }
   ],
   "settings": {
@@ -45,6 +65,7 @@
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
-    "useDefaultAggregateDisplayName": true
+    "useDefaultAggregateDisplayName": true,
+    "locale": "en-GB"
   }
 }

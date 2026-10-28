@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "observation_context",
   "position": {
-    "x": 48,
-    "y": 1016,
-    "width": 1824,
-    "height": 27,
+    "x": 40,
+    "y": 992,
+    "width": 1840,
+    "height": 34,
     "z": 12,
     "tabOrder": 12
   },
@@ -20,7 +20,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -29,14 +29,21 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "13D"
                 }
               }
             },
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segoe UI'"
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -73,7 +80,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -82,7 +89,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -104,7 +111,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -113,7 +120,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -194,6 +201,44 @@
               "expr": {
                 "Literal": {
                   "Value": "'Latest imported observation timestamp, not the time of model refresh. No refresh timestamp exists in the supplied model.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263445'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

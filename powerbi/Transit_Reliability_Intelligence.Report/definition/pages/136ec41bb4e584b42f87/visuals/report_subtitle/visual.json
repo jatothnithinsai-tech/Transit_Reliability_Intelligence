@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "report_subtitle",
   "position": {
-    "x": 48,
-    "y": 88,
-    "width": 1400,
-    "height": 35,
+    "x": 40,
+    "y": 94,
+    "width": 1430,
+    "height": 34,
     "z": 1,
     "tabOrder": 1
   },
@@ -19,12 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Tube Service Performance & Disruption Analytics",
+                    "value": "LONDON UNDERGROUND  /  SAMPLED SERVICE OBSERVATIONS",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "21px",
-                      "color": "#AFC0D5",
-                      "fontWeight": "normal"
+                      "fontSize": "18px",
+                      "color": "#2563A6",
+                      "fontWeight": "bold"
                     }
                   }
                 ]
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -59,7 +59,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -90,7 +90,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -171,6 +171,44 @@
               "expr": {
                 "Literal": {
                   "Value": "'Tube Service Performance & Disruption Analytics'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263445'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

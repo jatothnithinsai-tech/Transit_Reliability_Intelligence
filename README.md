@@ -8,9 +8,11 @@ Python extracts the TfL API, preserves JSON snapshots, validates transformed rec
 
 **Explore the evidence:** [Python pipeline](src/) · [SQL analytics](sql/) · [editable Power BI project](powerbi/Transit_Reliability_Intelligence.pbip) · [KPI definitions](docs/kpi_definitions.md) · [recorded verification](docs/testing.md)
 
-![Power BI dashboard showing Tube reliability KPI cards, line comparisons, daily disruption trends, status distribution and a Tube Line filter](screenshots/dashboard.png)
+## Dashboard Preview
 
-*Static preview of the completed Power BI dashboard. Figures reflect the data imported when the screenshot was captured.*
+![Power BI dashboard showing Tube reliability KPI cards, line comparisons, daily disruption trends, status distribution and a Tube Line filter](screenshots/transit_executive_dashboard.png)
+
+*Genuine capture of the redesigned editable Power BI report, 28 October 2026. Values describe the imported sample at capture time; this is an observation dashboard, not service uptime or punctuality.*
 
 **Published on GitHub:** [Transit Reliability Intelligence](https://github.com/jatothnithinsai-tech/Transit_Reliability_Intelligence).
 
@@ -35,7 +37,7 @@ The screenshot above is a static portfolio preview. Open [Transit_Reliability_In
 
 The implemented cloud extension defines **EventBridge Scheduler → Lambda → TfL → private S3**, with a shared HTTP client, S3 execution leases, checksum verification, scoped IAM, failure queues and CloudWatch freshness monitoring. The deployed Lambda was manually verified against TfL and S3, including checksum and duplicate-replay checks. Automatic Scheduler delivery was verified with a temporary one-minute interval, then the enabled hourly schedule was restored. The notification subscription remains to be configured. Historical mock-only reviews below retain their original scope. See [AWS readiness](docs/aws_readiness.md), [architecture](docs/aws_architecture.md), [deployment proposal](docs/aws_deployment_plan.md), [environment](docs/aws_environment.md), [operations](docs/aws_operations.md), [London cost estimate](docs/aws_costs.md), and [local download/integration](docs/aws_local_integration.md).
 
-## Business questions and KPIs
+## Business Problem
 
 Business questions this project answers:
 
@@ -56,7 +58,7 @@ These are sampled observation metrics, not actual TfL uptime, passenger delay, o
 
 Simultaneous statuses count once per line/time observation. See [KPI definitions](docs/kpi_definitions.md) for scope, overlapping categories and interpretation.
 
-## Architecture and tools
+## Project Architecture
 
 ```mermaid
 flowchart LR
@@ -167,3 +169,31 @@ cd Transit_Reliability_Intelligence
 ```
 
 Local data, `.env`, credentials, logs, virtual environments, binary Power BI files, caches, backups, Terraform inputs/state/plans, and deployment ZIPs remain excluded. The `.env.example`, Terraform variable example and provider lock file are safe templates/metadata and are included. A real AWS deployment requires separate approval and is unrelated to GitHub publication.
+
+## Tools & Technologies
+
+Python, PostgreSQL, SQL, Power BI Desktop, PBIP/PBIR, TMDL and DAX. The optional AWS implementation is locally mocked, as described above.
+
+## Key Analysis
+
+SQL separates raw status records from distinct line/time observations. DAX uses the validated observation denominators; the line selector retains the documented global versus line-comparison scope.
+
+## Key Findings
+
+At the imported cutoff **2026-10-27 13:56:42+00:00**, the model contains **11 Tube lines** and **162 collection timestamps**. **62.96%** of observed line/time pairs indicated good service; **37.04%** contained disruption. These figures reconcile to SQL through the same cutoff and describe the collected sample, not continuous network performance.
+
+## Business Recommendations
+
+Investigate lines with a higher observed disruption share against incident logs and collection coverage. Collect a systematic time sample before estimating longer-term performance.
+
+## Testing & Validation
+
+The existing offline suite passed **99 tests, zero failures, zero errors, zero skips** on 27 October 2026. [Redesign evidence](docs/design/redesign_validation.json) records the schema/layout checks, actual Desktop page capture and DAX/SQL reconciliation. All semantic-model files, analytical queries, filters and interaction definitions were preserved. Full slicer, tooltip and drillthrough usability has not been exercised in this redesign audit.
+
+## How to Reproduce the Design
+
+After the existing project setup, open the committed PBIP in Power BI Desktop and refresh against the configured local database. To reapply presentation after rebuilding the original report, run `python scripts/redesign_report.py`. This script updates the report and theme without changing the semantic model.
+
+## Redesign Scope & Limitations
+
+The light transport palette separates coverage, observed good service and disruption indicators. The sample is irregular; unobserved time is not interpolated into an uptime estimate. [Design decisions and page purpose](docs/design/REDESIGN_NOTES.md).

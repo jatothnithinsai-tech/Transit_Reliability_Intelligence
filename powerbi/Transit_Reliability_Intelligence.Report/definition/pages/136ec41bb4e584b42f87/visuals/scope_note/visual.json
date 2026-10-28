@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "scope_note",
   "position": {
-    "x": 48,
-    "y": 137,
-    "width": 1824,
-    "height": 29,
+    "x": 40,
+    "y": 139,
+    "width": 1840,
+    "height": 34,
     "z": 2,
     "tabOrder": 2
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "NETWORK VIEW  /  KPIs, daily trend and status distribution cover all lines. The line filter applies to both bar charts.",
+                    "value": "Network KPIs, trend and status mix stay global. Use the line filter to focus the two line comparisons.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "15px",
-                      "color": "#AFC0D5",
+                      "fontSize": "18px",
+                      "color": "#56687A",
                       "fontWeight": "normal"
                     }
                   }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -59,7 +59,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -90,7 +90,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -171,6 +171,44 @@
               "expr": {
                 "Literal": {
                   "Value": "'NETWORK VIEW  /  KPIs, daily trend and status distribution cover all lines. The line filter applies to both bar charts.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263445'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

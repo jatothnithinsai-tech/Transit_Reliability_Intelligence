@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "disclaimer",
   "position": {
-    "x": 48,
-    "y": 1047,
-    "width": 1824,
-    "height": 26,
+    "x": 40,
+    "y": 1032,
+    "width": 1840,
+    "height": 34,
     "z": 13,
     "tabOrder": 13
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Snapshot-based observations; not official TfL uptime.",
+                    "value": "Sampled TfL API statuses; percentages describe observations. They do not measure service uptime, punctuality or passenger delay.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "15px",
-                      "color": "#AFC0D5",
+                      "fontSize": "17px",
+                      "color": "#56687A",
                       "fontWeight": "normal"
                     }
                   }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -59,7 +59,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -90,7 +90,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -171,6 +171,44 @@
               "expr": {
                 "Literal": {
                   "Value": "'Snapshot-based observations; not official TfL uptime.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263445'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

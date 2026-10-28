@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "line_good_service",
   "position": {
-    "x": 48,
-    "y": 356,
-    "width": 696,
-    "height": 636,
+    "x": 40,
+    "y": 354,
+    "width": 718,
+    "height": 620,
     "z": 8,
     "tabOrder": 8
   },
@@ -34,7 +34,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "11D"
                 }
               }
             },
@@ -100,7 +100,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -109,7 +109,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },
@@ -153,7 +153,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -162,7 +162,7 @@
             "gridlineTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "30L"
+                  "Value": "30D"
                 }
               }
             },
@@ -184,7 +184,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#37D6BC'"
+                      "Value": "'#2563A6'"
                     }
                   }
                 }
@@ -200,6 +200,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56687A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
@@ -221,7 +239,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -230,7 +248,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "11D"
                 }
               }
             },
@@ -252,6 +270,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1L"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OutsideEnd'"
                 }
               }
             }
@@ -288,7 +313,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -297,7 +322,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -319,7 +344,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -328,7 +353,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -415,7 +440,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed Good Service % by Tube Line'"
+                  "Value": "'Good service by Tube line'"
                 }
               }
             },
@@ -424,7 +449,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -433,7 +458,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16L"
+                  "Value": "14D"
                 }
               }
             },
@@ -452,6 +477,13 @@
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -483,7 +515,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -492,7 +524,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },

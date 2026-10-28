@@ -1,0 +1,30 @@
+{
+  "name": "Transit_Operations_Light",
+  "dataColors": [
+    "#2563A6",
+    "#087F75",
+    "#C48B25",
+    "#C9513E",
+    "#7664BF"
+  ],
+  "background": "#F6F8FC",
+  "foreground": "#263445",
+  "tableAccent": "#2563A6",
+  "good": "#087F75",
+  "neutral": "#C48B25",
+  "bad": "#C9513E",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#263445"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#56687A"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#263445"
+    }
+  }
+}

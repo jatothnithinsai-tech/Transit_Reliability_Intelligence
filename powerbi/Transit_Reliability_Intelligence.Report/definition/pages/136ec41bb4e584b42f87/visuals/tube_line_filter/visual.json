@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "tube_line_filter",
   "position": {
-    "x": 1504,
-    "y": 28,
-    "width": 368,
-    "height": 100,
+    "x": 1510,
+    "y": 32,
+    "width": 370,
+    "height": 98,
     "z": 3,
     "tabOrder": 3
   },
@@ -66,7 +66,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -77,7 +77,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -86,7 +86,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "12D"
                 }
               }
             }
@@ -123,7 +123,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -132,7 +132,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -154,7 +154,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -163,7 +163,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -259,7 +259,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -268,7 +268,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16L"
+                  "Value": "14D"
                 }
               }
             },
@@ -287,6 +287,13 @@
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"

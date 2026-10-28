@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "report_title",
   "position": {
-    "x": 48,
-    "y": 28,
-    "width": 1424,
-    "height": 56,
+    "x": 40,
+    "y": 26,
+    "width": 1430,
+    "height": 60,
     "z": 0,
     "tabOrder": 0
   },
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "TfL | Transit Reliability Intelligence",
+                    "value": "Transit reliability intelligence",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "38px",
-                      "color": "#F1F6FC",
+                      "fontSize": "40px",
+                      "color": "#263445",
                       "fontWeight": "bold"
                     }
                   }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -59,7 +59,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -90,7 +90,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -171,6 +171,44 @@
               "expr": {
                 "Literal": {
                   "Value": "'TfL | Transit Reliability Intelligence'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263445'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

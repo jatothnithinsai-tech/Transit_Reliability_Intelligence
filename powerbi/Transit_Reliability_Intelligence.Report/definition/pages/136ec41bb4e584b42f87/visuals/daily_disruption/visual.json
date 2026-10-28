@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "daily_disruption",
   "position": {
-    "x": 768,
-    "y": 356,
-    "width": 1104,
-    "height": 302,
+    "x": 782,
+    "y": 354,
+    "width": 1098,
+    "height": 222,
     "z": 9,
     "tabOrder": 9
   },
@@ -34,7 +34,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "11D"
                 }
               }
             },
@@ -93,7 +93,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -102,7 +102,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },
@@ -146,7 +146,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -155,7 +155,7 @@
             "gridlineTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "30L"
+                  "Value": "30D"
                 }
               }
             },
@@ -177,7 +177,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFAA70'"
+                      "Value": "'#C9513E'"
                     }
                   }
                 }
@@ -193,6 +193,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56687A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
@@ -214,7 +232,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -223,7 +241,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "11D"
                 }
               }
             },
@@ -293,7 +311,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFAA70'"
+                      "Value": "'#C9513E'"
                     }
                   }
                 }
@@ -326,7 +344,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -335,7 +353,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -357,7 +375,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -366,7 +384,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -453,7 +471,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Daily Observed Disruption %'"
+                  "Value": "'Observed disruption across sampled days'"
                 }
               }
             },
@@ -462,7 +480,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -471,7 +489,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16L"
+                  "Value": "14D"
                 }
               }
             },
@@ -490,6 +508,13 @@
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -521,7 +546,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -530,7 +555,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },

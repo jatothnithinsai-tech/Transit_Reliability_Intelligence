@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "status_distribution",
   "position": {
-    "x": 768,
-    "y": 682,
-    "width": 540,
-    "height": 310,
+    "x": 782,
+    "y": 600,
+    "width": 526,
+    "height": 374,
     "z": 10,
     "tabOrder": 10
   },
@@ -34,7 +34,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -43,7 +43,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "11D"
                 }
               }
             },
@@ -93,7 +93,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -102,7 +102,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },
@@ -146,7 +146,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -155,7 +155,7 @@
             "gridlineTransparency": {
               "expr": {
                 "Literal": {
-                  "Value": "30L"
+                  "Value": "30D"
                 }
               }
             }
@@ -170,41 +170,12 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFAA70'"
+                      "Value": "'#087F75'"
                     }
                   }
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "analytics vw_operational_kpi_summary"
-                        }
-                      },
-                      "Property": "Status Record Color"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
           }
         }
       ],
@@ -215,6 +186,24 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#56687A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
@@ -236,7 +225,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -245,7 +234,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11L"
+                  "Value": "11D"
                 }
               }
             },
@@ -303,7 +292,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#112239'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -312,7 +301,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "0D"
                 }
               }
             }
@@ -334,7 +323,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#263D57'"
+                      "Value": "'#DEE5EE'"
                     }
                   }
                 }
@@ -343,7 +332,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12L"
+                  "Value": "10D"
                 }
               }
             },
@@ -430,7 +419,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Status Record Distribution'"
+                  "Value": "'Service status records'"
                 }
               }
             },
@@ -439,7 +428,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F6FC'"
+                      "Value": "'#263445'"
                     }
                   }
                 }
@@ -448,7 +437,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16L"
+                  "Value": "14D"
                 }
               }
             },
@@ -467,6 +456,13 @@
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -498,7 +494,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#AFC0D5'"
+                      "Value": "'#56687A'"
                     }
                   }
                 }
@@ -507,7 +503,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10L"
+                  "Value": "10D"
                 }
               }
             },
